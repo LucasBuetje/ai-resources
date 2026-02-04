@@ -23,10 +23,10 @@ My go-to general purpose AI. I started using it because I got a free year of the
 *Note: The lack of chat history without enabling data training is a big downside.*
 
 **My Custom Gems:**
-*   **Paper Summarizer:** Two versions - one for empirical papers and one for literature reviews.
-*   **Custom AI Creator:** A meta-tool to draft the initial CRISPE prompt for new custom agents.
-*   **Paper Podcast Prompter:** Instructions for NotebookLM to create structured podcast scripts from papers.
-*   **Google Scholar Labs Prompter:** Helps generate natural language queries for finding papers.
+*   **Paper Summarizer:** Two versions - one for [empirical papers](Gemini/empirical_paper_summarizer.md) and one for [literature reviews](Gemini/review_paper_summarizer.md).
+*   **[Custom AI Creator](Gemini/custom_ai_creator.md):** A meta-tool to draft the initial CRISPE prompt for new custom agents.
+*   **[Paper Podcast Prompter](Gemini/notebooklm_paper_podcast_prompter.md):** Instructions for NotebookLM to create structured podcast scripts from papers.
+*   **[Google Scholar Labs Prompter](Gemini/google_scholar_labs_prompter.md):** Helps generate natural language queries for finding papers.
 *   **NEPS Codebook and Code:** An agent that "knows" the codebooks and my specific project code to answer data questions.
 
 ### Antigravity (Agentic IDE)
