@@ -3,7 +3,8 @@ A collection of AI tips, tools and prompts that I find helpful - maybe you do to
 
 ## Customize your AI!
 ### Why customize?
-Most LLMs allow you to create custom agents (Gemini Gems, CustomGPTs, etc.). By creating different agents with different system prompts, you can control both how the AI approaches a task and what you want the output to look like. I find this very uselful for tasks I regularly use AI for, such as summarizing papers. **You can find all the prompts for my custom AIs below.**  
+Most LLMs allow you to create custom agents (Gemini Gems, CustomGPTs, etc.). By creating different agents with different system prompts, you can control both how the AI approaches a task and what you want the output to look like. I find this very uselful for tasks I regularly use AI for, such as summarizing papers.  
+**You can find all the prompts for my custom AIs below.**  
 But first, I would like to introduce the CRISPE framework that I use for all my custom AIs. Feel free to use and adapt them for your own needs!
 
 ### The CRISPE Framework
