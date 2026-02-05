@@ -27,7 +27,6 @@ My go-to general purpose AI. I started using it because I got a free year of the
 *   **[Custom AI Creator](Gemini/custom_ai_creator.md):** A meta-tool to draft the initial CRISPE prompt for new custom agents.
 *   **[Paper Podcast Prompter](Gemini/notebooklm_paper_podcast_prompter.md):** Instructions for NotebookLM to create structured podcast scripts from papers.
 *   **[Google Scholar Labs Prompter](Gemini/google_scholar_labs_prompter.md):** Helps generate natural language queries for finding papers.
-*   **NEPS Codebook and Code:** An agent that "knows" the codebooks and my specific project code to answer data questions.
 
 ### Antigravity (Agentic IDE)
 An "Agent-first" IDE (think RStudio but for all languages with integrated AI). The agents can view the entire project/subfolders, answer questions, and autonomously debug or rewrite code. You get a "diff" view to accept/reject changes. There are several similar tools out there (e.g. Cursor, Claude Code, Codex by openAI). For everyone with an academic affiliation, VSCode + GitHub Copilot is a great free alternative. 
