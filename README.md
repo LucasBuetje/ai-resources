@@ -1,5 +1,5 @@
 # AI Resources
-A collection of AI tips, tools and prompts that I find helpful - maybe you do too. Feel free to reach out if you have any questions or feedback (email: lucas.buetje@uni-konstanz.de)
+A collection of AI tips, tools and prompts that I find helpful - maybe you do too. Feel free to reach out if you have any questions or feedback (email: lucas.buetje.economist@outlook.com)
 
 ## Customize your AI!
 ### Why customize?
