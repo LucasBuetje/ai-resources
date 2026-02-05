@@ -32,12 +32,12 @@ My go-to general purpose AI. I started using it because I got a free year of the
 ### Antigravity (Agentic IDE)
 An "Agent-first" IDE (think RStudio but for all languages with integrated AI). The agents can view the entire project/subfolders, answer questions, and autonomously debug or rewrite code. You get a "diff" view to accept/reject changes. There are several similar tools out there (e.g. Cursor, Claude Code, Codex by openAI). For everyone with an academic affiliation, VSCode + GitHub Copilot is a great free alternative. 
 
-**Custom General Instructions**
+**[Custom General Instructions](Antigravity/antigravity_general_instructions.md)**
 
 **Custom "Workflows":**
-*   **R Code Reviewer:** Reviews code chunks for syntax and logic errors (checks if code matches comments).
-*   **R Code Formatter:** Enforces consistent styling without altering logic.
-*   **LaTeX Reviewer:** Reviews documents section-by-section for formatting and improvements.
+*   **[R Code Reviewer](Antigravity/r-code-auditing/r-code-auditing.md):** Reviews code chunks for syntax and logic errors (checks if code matches comments).
+*   **[R Code Formatter](Antigravity/r-code-formatter/r-code-formatter.md):** Enforces consistent styling without altering logic.
+*   **[LaTeX Reviewer](Antigravity/latex-auditing/latex-auditing.md):** Reviews documents section-by-section for formatting and improvements.
 
 ### Other Tools
 *   **NotebookLM:** Upload your own documents to ask questions or create media from it. Many students love it for studying with flashcards etc. My use case: Uploading a paper to create a podcast for train rides.
