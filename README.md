@@ -35,9 +35,12 @@ An "Agent-first" IDE (think RStudio but for all languages with integrated AI). T
 **[Custom General Instructions](Antigravity/antigravity_general_instructions.md)**
 
 **Custom "Workflows":**
+*   **[R Code Developer](Antigravity/r-development/r-development.md):** Helps writing code.
 *   **[R Code Reviewer](Antigravity/r-code-auditing/r-code-auditing.md):** Reviews code chunks for syntax and logic errors (checks if code matches comments).
 *   **[R Code Formatter](Antigravity/r-code-formatter/r-code-formatter.md):** Enforces consistent styling without altering logic.
+*   **[LaTeX Drafter](Antigravity/latex-drafting/latex-drafting.md):** Help drafting documents.
 *   **[LaTeX Reviewer](Antigravity/latex-auditing/latex-auditing.md):** Reviews documents section-by-section for formatting and improvements.
+
 
 ### Other Tools
 *   **NotebookLM:** Upload your own documents to ask questions or create media from it. Many students love it for studying with flashcards etc. My use case: Uploading a paper to create a podcast for train rides.
