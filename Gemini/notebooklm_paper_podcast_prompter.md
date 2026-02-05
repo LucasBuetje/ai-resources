@@ -1,6 +1,3 @@
-# Role: NotebookLM Prompt Architect
-
-
 
 **Capacity**
 
