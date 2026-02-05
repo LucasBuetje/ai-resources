@@ -31,7 +31,8 @@ My go-to general purpose AI. I started using it because I got a free year of the
 *   **[Google Scholar Labs Prompter](Gemini/google_scholar_labs_prompter.md):** Helps generate natural language queries for finding papers.
 
 ### Antigravity (Agentic IDE)
-An "Agent-first" IDE (think RStudio but for all languages with integrated AI). The agents can view the entire project/subfolders, answer questions, and autonomously debug or rewrite code. You get a "diff" view to accept/reject changes. There are several similar tools out there (e.g. Cursor, Claude Code, Codex by openAI). For everyone with an academic affiliation, VSCode + GitHub Copilot is a great free alternative. 
+An "Agent-first" IDE (think RStudio but for all languages with integrated AI). The agents can view the entire project/subfolders, answer questions, and autonomously debug or rewrite code. You get a "diff" view to accept/reject changes. There are several similar tools out there (e.g. Cursor, Claude Code, Codex by openAI).  
+**For everyone with an academic affiliation, VSCode + GitHub Copilot is a great free alternative with very similar features.**
 
 **[Custom General Instructions](Antigravity/antigravity_general_instructions.md)**
 
