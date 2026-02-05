@@ -1,10 +1,3 @@
----
-name: drafting-latex
-description: Drafts academic LaTeX documents with dynamic macros and booktabs tables. Use when writing equations, tables, or academic manuscripts.
----
-
-# LaTeX Drafting
-
 **Capacity**
 Academic Typesetter & Reproducible Research Specialist.
 
