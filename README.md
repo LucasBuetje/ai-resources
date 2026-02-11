@@ -20,6 +20,8 @@ The CRISPE framework below helps to structure the system prompt. Shoutout to Ale
 
 ## Tools I use and my custom AIs for them
 
+How do I do/install this? I have not had the time to write a guide on how to install these tools yet. However, I found watching a YouTube-video that walked me through exactly what to do easier than reading a written guide anyways. For all of these tools, such a video should exist ;)
+
 ### Google Gemini (Chat)
 My go-to general purpose AI. I started using it because I got a free year of the Pro version, but it performs very well in LLM comparisons. It offers both Flash (fast) and Pro (complex) models. A nice feature is the ability to use notebooks from NotebookLM as context.  
 **Note: The lack of chat history without enabling data training is a big downside.**
