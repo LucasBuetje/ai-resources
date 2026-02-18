@@ -1,6 +1,8 @@
 # AI Resources
 A collection of AI tips, tools and prompts that I find helpful - maybe you do too. Feel free to reach out if you have any questions or feedback (email: lucas.buetje.economist@outlook.com)
 
+**Disclaimer:** All tools, scripts, and prompts in this repository are provided as-is. Use them at your own risk. I am not responsible for any data loss or other issues that may arise from their use.
+
 ## Customize your AI!
 ### Why customize?
 Most LLMs allow you to create custom agents (Gemini Gems, CustomGPTs, etc.). By creating different agents with different system prompts, you can control both how the AI approaches a task and what you want the output to look like. I find this very uselful for tasks I regularly use AI for, such as summarizing papers.  
@@ -24,7 +26,8 @@ The CRISPE framework below helps to structure the system prompt. Shoutout to Ale
 
 ### Google Gemini (Chat)
 My go-to general purpose AI. I started using it because I got a free year of the Pro version, but it performs very well in LLM comparisons. It offers both Flash (fast) and Pro (complex) models. A nice feature is the ability to use notebooks from NotebookLM as context.  
-**Note: The lack of chat history without enabling data training is a big downside.**
+**Note: The lack of chat history without enabling data training is a big downside.** 
+I currently use [SaveChat – for Gemini AI](https://chromewebstore.google.com/detail/savechat-%E2%80%93-for-gemini-ai/blndbnmpkgfoopgmcejnhdnepfejgipe) to save my chats to downloads and then use [this short script](Gemini/move_gemini_chats.sh) to move them to a dedicated folder.
 
 **My Custom Gems:**
 *   **Paper Summarizer:** Two versions - one for [empirical papers](Gemini/empirical_paper_summarizer.md) and one for [literature reviews](Gemini/review_paper_summarizer.md).
