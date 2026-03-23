@@ -1,7 +1,10 @@
 # AI Resources
 A collection of AI tips, tools and prompts that I find helpful - maybe you do too. Feel free to reach out if you have any questions or feedback (email: lucas.buetje.economist@outlook.com)
 
-**Disclaimer:** All tools, scripts, and prompts in this repository are provided as-is. Use them at your own risk. I am not responsible for any data loss or other issues that may arise from their use.
+**Disclaimer 1: A few weeks ago, I switched most of my AI use over to Claude Code, so this can in a way be viewed as my pre-Claude archive. I might share my new workflow with Claude Code once I figured it out for myself and feel confident with it ;)**
+
+**Disclaimer 2:** 
+All tools, scripts, and prompts in this repository are provided as-is. Use them at your own risk. I am not responsible for any data loss or other issues that may arise from their use.
 
 ## Customize your AI!
 ### Why customize?
