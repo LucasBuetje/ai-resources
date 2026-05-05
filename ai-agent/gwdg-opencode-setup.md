@@ -126,6 +126,8 @@ The source code is available at **https://github.com/opencode-ai/opencode** (MIT
 
 ### Step 6: Configure the GWDG Provider
 
+Two models are configured here. **Qwen 3.5 122B** is the daily driver — fast enough for normal tasks and good value on your quota. **Mistral Large 3** is a larger, much slower model; use it when a task is genuinely complex and speed doesn't matter.
+
 Open OpenCode Desktop. In the provider setup screen, fill in:
 
 - **Anbieter-ID / Provider ID:** `gwdg` (must match exactly)
@@ -181,7 +183,17 @@ You should see a connection to `saia.academiccloud.de` — this is the GWDG back
 | `qwen3.5-122b-a10b` | **Daily driver.** |
 | `mistral-large-3-675b-instruct-2512` | Heavy lifting — slow but strong; multilingual, strong in German |
 
-Start with **GLM-4.7** as your default. Switch models manually for specific tasks.
+It's worth testing other models available on the GWDG endpoint — the catalogue changes over time. To list all currently available model IDs:
+
+```bash
+curl -s -X POST \
+  -H "Authorization: Bearer $GWDG_API_KEY" \
+  -H "Content-Type: application/json" \
+  "https://chat-ai.academiccloud.de/v1/models" \
+  | jq '.data[].id'
+```
+
+Add any model you want to try to the `models` block in your config (Step 6) and switch to it in OpenCode.
 
 ---
 
@@ -296,6 +308,8 @@ The source code is available at **https://github.com/opencode-ai/opencode** (MIT
 
 ### Step 6: Configure the GWDG Provider
 
+Two models are configured here. **Qwen 3.5 122B** is the daily driver — fast enough for normal tasks and good value on your quota. **Mistral Large 3** is a larger, much slower model; use it when a task is genuinely complex and speed doesn't matter.
+
 Open OpenCode Desktop. In the provider setup screen, fill in:
 
 - **Anbieter-ID / Provider ID:** `gwdg` (must match exactly)
@@ -358,7 +372,17 @@ You should see a connection to `saia.academiccloud.de` — this is the GWDG back
 | `qwen3.5-122b-a10b` | **Daily driver.** |
 | `mistral-large-3-675b-instruct-2512` | Heavy lifting — slow but strong; multilingual, strong in German |
 
-Start with **GLM-4.7** as your default. Switch models manually for specific tasks.
+It's worth testing other models available on the GWDG endpoint — the catalogue changes over time. To list all currently available model IDs:
+
+```bash
+curl -s -X POST \
+  -H "Authorization: Bearer $GWDG_API_KEY" \
+  -H "Content-Type: application/json" \
+  "https://chat-ai.academiccloud.de/v1/models" \
+  | jq '.data[].id'
+```
+
+Add any model you want to try to the `models` block in your config (Step 6) and switch to it in OpenCode.
 
 ---
 
