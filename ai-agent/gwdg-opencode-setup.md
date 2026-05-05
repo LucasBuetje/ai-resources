@@ -150,10 +150,7 @@ nano ~/.config/opencode/opencode.json
         "baseURL": "https://chat-ai.academiccloud.de/v1"
       },
       "models": {
-        "glm-4.7":                            { "name": "GLM-4.7" },
-        "qwen3-coder-30b-a3b-instruct":       { "name": "Qwen3 Coder 30B" },
-        "devstral-2-123b-instruct-2512":      { "name": "Devstral 2 123B" },
-        "qwen3.5-397b-a17b":                  { "name": "Qwen 3.5 397B" },
+        "qwen3.5-122b-a10b":                  { "name": "Qwen 3.5 122B" },
         "mistral-large-3-675b-instruct-2512": { "name": "Mistral Large 3" }
       }
     }
@@ -181,11 +178,8 @@ You should see a connection to `saia.academiccloud.de` — this is the GWDG back
 
 | Model ID | Best for |
 |---|---|
-| `glm-4.7` | **Default.** Agentic coding, tool use, fast responses |
-| `qwen3-coder-30b-a3b-instruct` | Coding tasks, quick turnaround |
-| `devstral-2-123b-instruct-2512` | Complex multi-file software engineering |
-| `qwen3.5-397b-a17b` | Analysis, writing, German-language tasks |
-| `mistral-large-3-675b-instruct-2512` | Multilingual, strong in German |
+| `qwen3.5-122b-a10b` | **Daily driver.** |
+| `mistral-large-3-675b-instruct-2512` | Heavy lifting — slow but strong; multilingual, strong in German |
 
 Start with **GLM-4.7** as your default. Switch models manually for specific tasks.
 
@@ -335,10 +329,7 @@ Paste the following and save:
         "baseURL": "https://chat-ai.academiccloud.de/v1"
       },
       "models": {
-        "glm-4.7":                            { "name": "GLM-4.7" },
-        "qwen3-coder-30b-a3b-instruct":       { "name": "Qwen3 Coder 30B" },
-        "devstral-2-123b-instruct-2512":      { "name": "Devstral 2 123B" },
-        "qwen3.5-397b-a17b":                  { "name": "Qwen 3.5 397B" },
+        "qwen3.5-122b-a10b":                  { "name": "Qwen 3.5 122B" },
         "mistral-large-3-675b-instruct-2512": { "name": "Mistral Large 3" }
       }
     }
@@ -364,11 +355,8 @@ You should see a connection to `saia.academiccloud.de` — this is the GWDG back
 
 | Model ID | Best for |
 |---|---|
-| `glm-4.7` | **Default.** Agentic coding, tool use, fast responses |
-| `qwen3-coder-30b-a3b-instruct` | Coding tasks, quick turnaround |
-| `devstral-2-123b-instruct-2512` | Complex multi-file software engineering |
-| `qwen3.5-397b-a17b` | Analysis, writing, German-language tasks |
-| `mistral-large-3-675b-instruct-2512` | Multilingual, strong in German |
+| `qwen3.5-122b-a10b` | **Daily driver.** |
+| `mistral-large-3-675b-instruct-2512` | Heavy lifting — slow but strong; multilingual, strong in German |
 
 Start with **GLM-4.7** as your default. Switch models manually for specific tasks.
 
