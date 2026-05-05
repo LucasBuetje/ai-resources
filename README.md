@@ -1,7 +1,6 @@
 # AI Resources
 
 A collection of AI tools, setups, and prompts for academic research and writing — focused on what I actually use day-to-day. Feel free to reach out: lucas.buetje.economist@outlook.com
->>>>>>> Stashed changes
 
 **Disclaimer:** All tools, scripts, and prompts are provided as-is. Use them at your own risk. I am not responsible for any data loss or other issues that may arise from their use.
 
