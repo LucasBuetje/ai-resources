@@ -126,14 +126,38 @@ The source code is available at **https://github.com/opencode-ai/opencode** (MIT
 
 ### Step 6: Configure the GWDG Provider
 
-Two models are configured here. **Qwen 3.5 122B** is the daily driver — fast enough for normal tasks and good value on your quota. **Mistral Large 3** is a larger, much slower model; use it when a task is genuinely complex and speed doesn't matter.
+Two models are configured here:
 
-Open OpenCode Desktop. In the provider setup screen, fill in:
+| Model ID | Best for |
+|---|---|
+| `qwen3.5-122b-a10b` | **Daily driver.** Fast enough for normal tasks and good value on your quota. |
+| `mistral-large-3-675b-instruct-2512` | Heavy lifting — slow but strong; multilingual, strong in German. |
+
+Open OpenCode Desktop. In the provider setup screen, click **Benutzerdefinierter Anbieter / Custom Provider** first, then fill in:
 
 - **Anbieter-ID / Provider ID:** `gwdg` (must match exactly)
 - **Anzeigename / Display name:** `GWDG Chat AI`
 - **Basis-URL / Base URL:** `https://chat-ai.academiccloud.de/v1`
 - **API-Schlüssel / API Key:** your key
+
+Then add the two models via the UI (under **Modelle / Models** on the same provider screen). For each model, click **Modell hinzufügen / Add model** and enter:
+
+- **Modell-ID / Model ID:** `qwen3.5-122b-a10b` — **Anzeigename / Display name:** `Qwen 3.5 122B`
+- **Modell-ID / Model ID:** `mistral-large-3-675b-instruct-2512` — **Anzeigename / Display name:** `Mistral Large 3`
+
+> **Unselect the preselected models.** OpenCode ships with **OpenCode Zen** (and possibly other) models pre-enabled. These route through third-party providers and are **not** data-protection-safe for sensitive research data. Untick all of them so only your GWDG models remain active.
+
+It's worth testing other models available on the GWDG endpoint — the catalogue changes over time. To list all currently available model IDs:
+
+```bash
+curl -s -X POST \
+  -H "Authorization: Bearer $GWDG_API_KEY" \
+  -H "Content-Type: application/json" \
+  "https://chat-ai.academiccloud.de/v1/models" \
+  | jq '.data[].id'
+```
+
+Add any model you want to try via the same UI flow, or via the JSON config below.
 
 **Alternative — edit the config file directly.** This also lets you control exactly which model IDs appear:
 
@@ -176,44 +200,13 @@ You should see a connection to `saia.academiccloud.de` — this is the GWDG back
 
 ---
 
-### Step 9: Recommended Models and Use Cases
+### Step 8: First Test
 
-| Model ID | Best for |
-|---|---|
-| `qwen3.5-122b-a10b` | **Daily driver.** |
-| `mistral-large-3-675b-instruct-2512` | Heavy lifting — slow but strong; multilingual, strong in German |
-
-It's worth testing other models available on the GWDG endpoint — the catalogue changes over time. To list all currently available model IDs:
-
-```bash
-curl -s -X POST \
-  -H "Authorization: Bearer $GWDG_API_KEY" \
-  -H "Content-Type: application/json" \
-  "https://chat-ai.academiccloud.de/v1/models" \
-  | jq '.data[].id'
-```
-
-Add any model you want to try to the `models` block in your config (Step 6) and switch to it in OpenCode.
-
----
-
-### Step 10: First Test
-
-Open a folder with some files in OpenCode. Switch to **Plan mode** first (Tab key) — this lets the agent read and suggest changes without modifying anything. Ask:
+Open a folder with some files in OpenCode. Below the chat input you'll find the controls for both the **mode** and the **model** — click them to switch. (The keyboard shortcut for mode differs between platforms, so clicking is the safe option.) Switch to **Plan mode** first — this lets the agent read and suggest changes without modifying anything — and pick one of your GWDG models from the model dropdown. Then ask:
 
 > *"What files are in this project and what do they do?"*
 
 If the agent reads the files and gives a coherent answer, your setup is working correctly.
-
----
-
-### Data Protection Notes
-
-- All self-hosted GWDG models process data exclusively on GWDG servers in Göttingen
-- No chat history is stored server-side
-- OpenCode does not store your code or context data on its own servers
-- If your institution uses GWDG services on behalf of an organisation, a data processing agreement (Auftragsverarbeitungsvertrag, AVV) between your institution and GWDG is advisable — contact your institution's data protection office
-- Do not use the external OpenAI models available in Chat AI when working with personal or sensitive research data
 
 ---
 
@@ -302,20 +295,47 @@ Look for `x-ratelimit-limit-*` and `x-ratelimit-remaining-*` headers in the outp
 
 Go to **https://opencode.ai/download** and download the **Windows (x64)** installer. Run the downloaded `.exe` file and follow the installer.
 
+> **Run as administrator.** Right-click the installer and choose **Run as administrator** — installing without elevated privileges fails on Windows.
+
 The source code is available at **https://github.com/opencode-ai/opencode** (MIT license).
 
 ---
 
 ### Step 6: Configure the GWDG Provider
 
-Two models are configured here. **Qwen 3.5 122B** is the daily driver — fast enough for normal tasks and good value on your quota. **Mistral Large 3** is a larger, much slower model; use it when a task is genuinely complex and speed doesn't matter.
+Two models are configured here:
 
-Open OpenCode Desktop. In the provider setup screen, fill in:
+| Model ID | Best for |
+|---|---|
+| `qwen3.5-122b-a10b` | **Daily driver.** Fast enough for normal tasks and good value on your quota. |
+| `mistral-large-3-675b-instruct-2512` | Heavy lifting — slow but strong; multilingual, strong in German. |
+
+Open OpenCode Desktop. In the provider setup screen, click **Benutzerdefinierter Anbieter / Custom Provider** first, then fill in:
 
 - **Anbieter-ID / Provider ID:** `gwdg` (must match exactly)
 - **Anzeigename / Display name:** `GWDG Chat AI`
 - **Basis-URL / Base URL:** `https://chat-ai.academiccloud.de/v1`
 - **API-Schlüssel / API Key:** your key
+
+Then add the two models via the UI (under **Modelle / Models** on the same provider screen). For each model, click **Modell hinzufügen / Add model** and enter:
+
+- **Modell-ID / Model ID:** `qwen3.5-122b-a10b` — **Anzeigename / Display name:** `Qwen 3.5 122B`
+- **Modell-ID / Model ID:** `mistral-large-3-675b-instruct-2512` — **Anzeigename / Display name:** `Mistral Large 3`
+
+> **Unselect the preselected models.** OpenCode ships with **OpenCode Zen** (and possibly other) models pre-enabled. These route through third-party providers and are **not** data-protection-safe for sensitive research data. Untick all of them so only your GWDG models remain active.
+
+> **"Failed to fetch" on save?** This appears to be a false positive on Windows. Check the model picker first — the models are usually there and selectable despite the error. If they aren't:
+> 1. Restart OpenCode and check again.
+> 2. If still missing, close OpenCode, relaunch it as administrator (right-click → **Run as administrator**), and redo the provider setup.
+> 3. If that also fails, fall back to the JSON config below.
+
+It's worth testing other models available on the GWDG endpoint — the catalogue changes over time. To list all currently available model IDs, open a **Command Prompt** and run:
+
+```cmd
+curl -s -X POST -H "Authorization: Bearer %GWDG_API_KEY%" -H "Content-Type: application/json" "https://chat-ai.academiccloud.de/v1/models"
+```
+
+Add any model you want to try via the same UI flow, or via the JSON config below.
 
 **Alternative — edit the config file directly.** This also lets you control exactly which model IDs appear. Open Notepad:
 
@@ -355,40 +375,37 @@ Paste the following and save:
 
 ### Step 7: Verify Traffic Goes to GWDG
 
-With OpenCode running, open a **Command Prompt** and run:
+You'll watch OpenCode's live network connections from PowerShell while it's mid-request. Connections to GWDG only stay open while the model is actively responding, so the order matters: paste the command first, then trigger a long-running prompt, then run it.
 
-```cmd
-netstat -an | findstr :443
-```
+1. Open **PowerShell** and paste this command (don't run it yet):
 
-You should see a connection to `saia.academiccloud.de` — this is the GWDG backend in Göttingen. No connections to `openai.com`, `anthropic.com`, or `opencode.ai` should appear when using your GWDG models.
+   ```powershell
+   Get-Process opencode* | ForEach-Object {
+     Get-NetTCPConnection -OwningProcess $_.Id -State Established -ErrorAction SilentlyContinue
+   } | Select-Object RemoteAddress, RemotePort, State
+   ```
 
----
+2. In OpenCode, send a prompt that keeps the model busy for a few seconds, e.g.:
 
-### Step 9: Recommended Models and Use Cases
+   > *"Print all numbers from 1 to 1000 into the chat so I can see them."*
 
-| Model ID | Best for |
-|---|---|
-| `qwen3.5-122b-a10b` | **Daily driver.** |
-| `mistral-large-3-675b-instruct-2512` | Heavy lifting — slow but strong; multilingual, strong in German |
+3. While the answer is still streaming, switch to PowerShell and press **Enter** to run the command.
 
-It's worth testing other models available on the GWDG endpoint — the catalogue changes over time. To list all currently available model IDs:
+You should see one or more rows with `RemoteAddress` in the `134.x.x.x` range — that's GWDG in Göttingen. If you also re-run the command *after* the answer finishes, the GWDG connection will be gone.
 
-```bash
-curl -s -X POST \
-  -H "Authorization: Bearer $GWDG_API_KEY" \
-  -H "Content-Type: application/json" \
-  "https://chat-ai.academiccloud.de/v1/models" \
-  | jq '.data[].id'
-```
+**What the other addresses mean:**
 
-Add any model you want to try to the `models` block in your config (Step 6) and switch to it in OpenCode.
+- **`127.0.0.1` (localhost)** — internal communication between OpenCode's own processes (Electron apps split into main, renderer, GPU, etc.). Never leaves your machine.
+- **`185.199.108–111.x`** — GitHub's CDN (Fastly), used by OpenCode for update checks and release metadata. No code or chat content is sent there.
+- **`134.x.x.x`** — GWDG. ✅ This is the only address your prompts and the model's responses flow to.
+
+If you ever see a connection to `openai.com`, `anthropic.com`, or `opencode.ai` *while* using a GWDG model, something is misconfigured — go back to Step 6 and double-check that all non-GWDG models are unticked.
 
 ---
 
-### Step 10: First Test
+### Step 8: First Test
 
-Open a folder with some files in OpenCode. Switch to **Plan mode** first (Tab key) — this lets the agent read and suggest changes without modifying anything. Ask:
+Open a folder with some files in OpenCode. Below the chat input you'll find the controls for both the **mode** and the **model** — click them to switch. (The keyboard shortcut for mode differs between platforms, so clicking is the safe option.) Switch to **Plan mode** first — this lets the agent read and suggest changes without modifying anything — and pick one of your GWDG models from the model dropdown. Then ask:
 
 > *"What files are in this project and what do they do?"*
 
