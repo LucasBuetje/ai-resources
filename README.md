@@ -48,13 +48,7 @@ You _can_ just put an agent in a folder and start talking to it. But I don't thi
 
 Here's a list of the tools I use to make my agent better.
 
-> [!TIP]
-> **You don't have to set any of this up by hand.** Just ask the agent and it does it for you — for example:
-> - *"Set up a `CLAUDE.md` for this project."*
-> - *"Turn this GitHub repo into a skill, adapted to my workflow."*
-> - *"Use one subagent per paper."*
->
-> The folders below are examples to point it at, not chores for you.
+**None of it is manual** — you just ask the agent to set it up (examples below ↓).
 
 **The basics** — I set these up for every project:
 
@@ -73,6 +67,14 @@ Here's a list of the tools I use to make my agent better.
 | 🔌 | **MCP** | Plug the agent into external tools (e.g. a Zotero library). | [`mcp/`](mcp/) |
 | 🪝 | **Hooks** | Your conventions enforced by code, not trust. | [`hooks/`](hooks/) |
 | ✅ | **Verification** | Re-runnable checks against a known truth — the new bottleneck. | [`verification/`](verification/) |
+
+> [!TIP]
+> **You don't have to set any of this up by hand.** Just ask the agent and it does it for you — for example:
+> - *"Set up a `CLAUDE.md` for this project."*
+> - *"Turn this GitHub repo into a skill, adapted to my workflow."*
+> - *"Use one subagent per paper."*
+>
+> The folders above are examples to point it at, not chores for you.
 
 ## Claude's Automatic Documentation: Nothing is lost
 
