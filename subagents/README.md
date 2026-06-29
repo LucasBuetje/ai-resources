@@ -2,7 +2,11 @@
 
 The agent can spawn **many subagents** that work in parallel — each on a slice of the task — then report back. One assistant becomes a team.
 
-## What it's good for
+Useful for (at least) two things
+- **Parallelization** (get the same thing faster)
+- **Different roles** (specialist subagent)
+
+## Example use-cases
 
 - **Reading list:** ask the agent to run [`/summarize-paper`](../skills/summarize-paper/) on a folder of papers — it spawns one subagent per paper, so a whole stack is summarized in about the time it takes to read one.
 - **Paper audit:** [`/referee2`](../skills/referee2/) runs five specialists simultaneously: code, replication, econometrics, structure, prose.
@@ -14,7 +18,6 @@ The agent can spawn **many subagents** that work in parallel — each on a slice
 ## Saves time, not tokens
 
 - Running N subagents costs roughly **N× the quota** — they all think in parallel.
-- So the win is *wall-clock time*, not cost. Reach for them when the work splits cleanly into independent slices, not to save money.
 
 ## You don't set this up
 
