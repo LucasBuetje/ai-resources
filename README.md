@@ -86,6 +86,6 @@ Here's a list of the tools I use to make my agent better.
 
 <div align="center">
 
-📊 [**Slides**](presentations/) from talks on this material  ·  💬 [**Non-agentic AI**](non-agentic/): chat prompts &amp; other tools
+💬 [**Non-agentic AI**](non-agentic/): chat prompts &amp; other tools
 
 </div>
