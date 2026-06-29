@@ -17,6 +17,7 @@ _**Provided as-is; use at your own risk.**_ · Reach out: lucas.buetje.economist
 
 ## What an AI agent is
 
+- An LLM that can actually **_do real work_** - by running commands on your computer.
 - It runs **inside a (project) folder**: reads, writes, and runs commands there, and by default can't reach above it. That folder is its **whole world**.
 - Think of it as a fast, capable **research assistant** that starts every session with **no context and no memory** — the toolkit below is how you give it both, keep it safe, and check its work.
 - Because it can run any terminal command, it can in principle do **anything your computer can**.
