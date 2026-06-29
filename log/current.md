@@ -13,7 +13,7 @@ What changed:
 - Skills: now ships 11 (summarize-paper, referee2, blindspot, germancheck, econ-write,
   revise, deck, tikz, council, premortem, skill-update-check), copied from live config + sanitized.
   Retired critic/scholar/devils-advocate/empirical-paper-summarizer → archive/retired-skills/.
-- Hooks: ships 4 (guard-rm, warn-pdf-mainthread, session-start-current-log, stop-log-reminder).
+- Hooks: ships 3 (guard-rm, warn-pdf-mainthread, session-start-current-log). (stop-log-reminder removed at Lucas's request → archive/.)
 - New `claude-md/global-CLAUDE.md` (expanded, sanitized) + `project-CLAUDE.md` example.
 - `memory-log/current.md` template; `verification/example-recovery-check.R` (runs, PASS).
 - Root + ai-agent READMEs rewritten as bullet skeletons (Lucas writes the prose).
@@ -25,8 +25,6 @@ verification R script PASSes.
 
 Open / decisions for Lucas:
 - READMEs are bullet skeletons by request — prose still to be written by Lucas.
-- `stop-log-reminder.sh` depends on a `log-ai-edit.sh` hook that was NOT shipped (Lucas
-  excluded it), so it currently no-ops. Documented in hooks/README.md.
 - Older talks (AI_Exchange, "KI in der Lehre ADILT") not imported into presentations/ yet —
   awaiting go-ahead.
 - Branch is uncommitted — Lucas commits.
