@@ -10,6 +10,7 @@
 > [!NOTE]
 > - **Treat this as a menu, not a template.** Don't clone it and expect it to "work" — it's here to inspire and be picked from. Take what fits how you work, adapt it, ignore the rest.
 > - **Agentic AI is the focus:** Plain chat and other tools have been demoted to a footnote (just as they have been in my workflow) → [`non-agentic/`](non-agentic/).
+> - **Written from a Claude Code perspective** — that's what I use, so the paths and commands here are Claude's. But Codex, Antigravity, OpenCode and the other agents work the same way; almost everything here applies to them too. When in doubt, just ask your agent for its equivalent.
 
 _**Provided as-is; use at your own risk.**_ · Reach out: lucas.buetje.economist@outlook.com
 
@@ -45,13 +46,28 @@ _**Provided as-is; use at your own risk.**_ · Reach out: lucas.buetje.economist
 
 You _can_ just put an agent in a folder and start talking to it. But I don't think you _should_ (most of the time). 
 
-Here's a list the tools I use to make my agent better:
+Here's a list of the tools I use to make my agent better.
+
+> [!TIP]
+> **You don't have to set any of this up by hand.** Just ask the agent and it does it for you — for example:
+> - *"Set up a `CLAUDE.md` for this project."*
+> - *"Turn this GitHub repo into a skill, adapted to my workflow."*
+> - *"Use one subagent per paper."*
+>
+> The folders below are examples to point it at, not chores for you.
+
+**The basics** — I set these up for every project:
 
 | | Step | What it does | Where |
 |:--:|---|---|:--:|
 | 📋 | **Context** | A `CLAUDE.md` the agent reads every session — how *you* work, what *this* project is. | [`claude-md/`](claude-md/) |
 | 🧠 | **Memory** | A running `log/current.md` that carries working memory across sessions. | [`memory-log/`](memory-log/) |
 | 📝 | **Plan mode** | The agent plans; you approve; *then* it edits. | [`plan-mode/`](plan-mode/) |
+
+**More specialized** — reach for these as the task calls for it:
+
+| | Step | What it does | Where |
+|:--:|---|---|:--:|
 | ⚡ | **Skills** | Reusable one-command recipes — `/summarize-paper`, `/referee2`, … (11 of them). | [`skills/`](skills/) |
 | 👥 | **Subagents** | A team working in parallel, each on a slice, then reporting back. | [`subagents/`](subagents/) |
 | 🔌 | **MCP** | Plug the agent into external tools (e.g. a Zotero library). | [`mcp/`](mcp/) |

@@ -20,4 +20,4 @@ Pick a tool, install it, point it at a project folder. Then come back to the [ma
 ## Setup guides
 
 - **OpenCode + GWDG** (Mac & Windows, credentials, model choice, common issues): [`gwdg-opencode-setup.md`](gwdg-opencode-setup.md)
-- **Claude Code:** install per [the official docs](https://claude.ai/code), then drop a [`global-CLAUDE.md`](../claude-md/global-CLAUDE.md) into `~/.claude/`, copy the [skills](../skills/) you want into `~/.claude/skills/`, and wire any [hooks](../hooks/) you want in `~/.claude/settings.json`.
+- **Claude Code:** install per [the official docs](https://claude.ai/code), then drop an [example `CLAUDE.md`](../claude-md/) into `~/.claude/`, copy the [skills](../skills/) you want into `~/.claude/skills/`, and wire any [hooks](../hooks/) you want in `~/.claude/settings.json`.

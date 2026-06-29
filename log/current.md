@@ -38,3 +38,12 @@ OpenCode comparison moved OFF the landing page into `getting-started/README.md`.
 renamed to `non-agentic/` (now holds AI-chat prompts + CRISPE + other tools), linked as a
 footnote on the main page. Old `ai-agent/README.md` → `archive/ai-agent-README-superseded.md`.
 All links re-checked (pass). Landing page is intentionally lean now.
+
+2026-06-29 (later 2) — (1) Split the landing toolkit table into "The basics" (Context,
+Memory, Plan mode) and "More specialized" (Skills, Subagents, MCP, Hooks, Verification).
+(2) Gave plan-mode/, subagents/, mcp/ their own READMEs (content from the talk slides) and
+linked the table rows to them; removed the inline note block. (3) claude-md/ is now just a
+README explainer (global vs project, example code blocks) — archived the standalone
+global-CLAUDE.md/project-CLAUDE.md to archive/claude-md-examples/, repointed 3 links.
+(4) skills/README.md table now has a Source column crediting each author (Scott Cunningham,
+Andrej Karpathy, hanlulong, olelehmann1337, or "original").

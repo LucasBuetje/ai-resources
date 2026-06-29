@@ -38,4 +38,4 @@ Copy the scripts to `~/.claude/hooks/` (`chmod +x` them), then register:
 }
 ```
 
-- `guard-rm.sh` enforces the same "move to `archive/`, never delete" rule shipped in [`../claude-md/global-CLAUDE.md`](../claude-md/global-CLAUDE.md) — the hook backs the instruction with code.
+- `guard-rm.sh` enforces the same "move to `archive/`, never delete" rule shown in the [`../claude-md/`](../claude-md/) example — the hook backs the instruction with code.

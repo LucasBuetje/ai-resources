@@ -8,4 +8,4 @@ Models forget everything between sessions. One working-memory file, maintained b
 - **Say "log":** archive `current.md` to a timestamped file (`log/YYYY-MM-DD_HHMM.md`) and start a fresh one — so the working memory stays short and the history is preserved.
 
 - [`current.md`](current.md) in this folder is a starter template — drop it into your project's `log/` folder.
-- This pairs with the global rule of the same name in [`../claude-md/global-CLAUDE.md`](../claude-md/global-CLAUDE.md).
+- This pairs with the global rule of the same name in the [`../claude-md/`](../claude-md/) example.
