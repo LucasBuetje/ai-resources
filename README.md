@@ -50,20 +50,12 @@ Here's a list the tools I use to make my agent better:
 |:--:|---|---|:--:|
 | 📋 | **Context** | A `CLAUDE.md` the agent reads every session — how *you* work, what *this* project is. | [`claude-md/`](claude-md/) |
 | 🧠 | **Memory** | A running `log/current.md` that carries working memory across sessions. | [`memory-log/`](memory-log/) |
-| 📝 | **Plan mode** | The agent plans; you approve; *then* it edits. | _note ↓_ |
+| 📝 | **Plan mode** | The agent plans; you approve; *then* it edits. | [`plan-mode/`](plan-mode/) |
 | ⚡ | **Skills** | Reusable one-command recipes — `/summarize-paper`, `/referee2`, … (11 of them). | [`skills/`](skills/) |
-| 👥 | **Subagents** | A team working in parallel, each on a slice, then reporting back. | _note ↓_ |
-| 🔌 | **MCP** | Plug the agent into external tools (e.g. a Zotero library). | _note ↓_ |
+| 👥 | **Subagents** | A team working in parallel, each on a slice, then reporting back. | [`subagents/`](subagents/) |
+| 🔌 | **MCP** | Plug the agent into external tools (e.g. a Zotero library). | [`mcp/`](mcp/) |
 | 🪝 | **Hooks** | Your conventions enforced by code, not trust. | [`hooks/`](hooks/) |
 | ✅ | **Verification** | Re-runnable checks against a known truth — the new bottleneck. | [`verification/`](verification/) |
-
-> [!TIP]
-> **Plan mode** is one of the single most useful habits. Without it, you find a wrong assumption *after* 12 files changed; with it, you fix the misunderstanding first.
->
-> **Subagents** save time, not tokens (N subagents ≈ N× the quota).
-
-> [!CAUTION]
-> **MCP** servers run code on your machine. They're powerful — a Zotero MCP can pull a paper (with your highlights) straight into the chat — but install only servers you trust.
 
 ## Claude's Automatic Documentation: Nothing is lost
 
