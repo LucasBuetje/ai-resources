@@ -12,9 +12,6 @@ Useful for (at least) two things
 - **Paper audit:** [`/referee2`](../skills/referee2/) runs five specialists simultaneously: code, replication, econometrics, structure, prose.
 - **LLM council:** [`/council`](../skills/council/) sends a question to several models; they critique each other and a chair synthesizes.
 
-> [!TIP]
-> **Example:** 30 papers on peer effects summarized and synthesized in a coffee break.
-
 ## Saves time, not tokens
 
 - Running N subagents costs roughly **N× the quota** — they all think in parallel.
