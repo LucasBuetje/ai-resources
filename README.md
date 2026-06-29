@@ -42,7 +42,7 @@ _**Provided as-is; use at your own risk.**_ · Reach out: lucas.buetje.economist
 > [!WARNING]
 > **Stay alert anyway.** Safeguards can fail, the tools keep changing, and permission pop-ups get clicked away. Use plan mode, keep backups / version control, and install only what you trust.
 
-## How I use an agent well, in my experience
+## How to use an agent well, in my experience
 
 You _can_ just put an agent in a folder and start talking to it. But I don't think you _should_ (most of the time). 
 
