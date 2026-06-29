@@ -10,7 +10,7 @@ Two levels, and they stack:
 | **Project** | `<project>/CLAUDE.md` | one folder | what *this* project is — data locations, build commands, codebook |
 
 > [!TIP]
-> Run `/init` in a new project and the agent drafts the project `CLAUDE.md` for you — it reads the codebase and writes down the structure, conventions, and key files. Edit from there.
+> You don't have to write these by hand. Run `/init` in a new project and the agent drafts the project `CLAUDE.md` for you (reading the codebase for structure, conventions, and key files); for the global one, just ask it to set up a `~/.claude/CLAUDE.md` based on the example below. Edit from there.
 
 The examples below are just that — **examples**. Take the rules that fit how you work, drop the rest, add your own.
 

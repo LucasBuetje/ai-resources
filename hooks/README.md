@@ -14,7 +14,8 @@ Small scripts the agent tool runs automatically at set moments — *before* a co
 
 ## Wiring (`~/.claude/settings.json`)
 
-Copy the scripts to `~/.claude/hooks/` (`chmod +x` them), then register:
+- **Easiest — just ask the agent.** Point it at this repo and say *"install the `guard-rm` and `session-start` hooks and wire them into my settings.json"* — it copies the scripts, makes them executable, and adds the config.
+- **Manual:** copy the scripts to `~/.claude/hooks/` (`chmod +x` them), then register:
 
 ```json
 {

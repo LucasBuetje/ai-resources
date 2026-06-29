@@ -7,5 +7,5 @@ Models forget everything between sessions. One working-memory file, maintained b
 - **At the next session start:** the file is read back in (a [SessionStart hook](../hooks/) makes this automatic), so it resumes where you stopped instead of starting cold.
 - **Say "log":** archive `current.md` to a timestamped file (`log/YYYY-MM-DD_HHMM.md`) and start a fresh one — so the working memory stays short and the history is preserved.
 
-- [`current.md`](current.md) in this folder is a starter template — drop it into your project's `log/` folder.
+- [`current.md`](current.md) in this folder is a starter template — drop it into your project's `log/` folder, or just ask the agent to start keeping the log for you.
 - This pairs with the global rule of the same name in the [`../claude-md/`](../claude-md/) example.

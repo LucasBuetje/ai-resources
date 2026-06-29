@@ -23,6 +23,11 @@ Verified: no leaked personal data (only the public email; "Konstanz" is just the
 palette name), all local markdown links resolve, `bash -n` passes on all 4 hooks,
 verification R script PASSes.
 
+Later edits: archive/ is now gitignored (local preservation, not shared); `getting-started/`
+(incl. the GWDG/OpenCode guide) moved into archive/ at Lucas's request, so it's no longer
+shared. stop-log-reminder hook removed. "Just ask the agent" install option added across
+skills/hooks/getting-started(now archived)/claude-md/memory-log.
+
 Open / decisions for Lucas:
 - READMEs are bullet skeletons by request — prose still to be written by Lucas.
 - Older talks (AI_Exchange, "KI in der Lehre ADILT") not imported into presentations/ yet —
