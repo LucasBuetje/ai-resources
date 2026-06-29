@@ -2,23 +2,22 @@
 
 # AI Resources
 
-**How I use AI _agents_ for academic research and teaching** — the setups, conventions, and skills I actually rely on, day-to-day.
+**How I use AI _agents_ for academic research and teaching** — the setups, conventions, and skills I actually use.
 
-`Claude Code` · `OpenCode` · `Research` · `Teaching`
 
 </div>
 
 > [!NOTE]
-> **This is a menu, not a template.** Don't clone it and expect it to "work" — it's here to inspire and be picked from. Take what fits how you work, adapt it, ignore the rest.
-> **Agentic AI is the focus:** tools that act on your computer. Plain chat and other tools are a footnote → [`non-agentic/`](non-agentic/).
+> - **Treat this as a menu, not a template.** Don't clone it and expect it to "work" — it's here to inspire and be picked from. Take what fits how you work, adapt it, ignore the rest.
+> - **Agentic AI is the focus:** Plain chat and other tools have been demoted to a footnote (just as they have been in my workflow) → [`non-agentic/`](non-agentic/).
 
-New here? Install a tool first → [`getting-started/`](getting-started/) · _Provided as-is; use at your own risk._ · Reach out: lucas.buetje.economist@outlook.com
+_**Provided as-is; use at your own risk.**_ · Reach out: lucas.buetje.economist@outlook.com
 
 ---
 
 ## What an AI agent is
 
-- It runs **inside a project folder**: reads, writes, and runs commands there, and by default can't reach above it. That folder is its **whole world**.
+- It runs **inside a (project) folder**: reads, writes, and runs commands there, and by default can't reach above it. That folder is its **whole world**.
 - Think of it as a fast, capable **research assistant** that starts every session with **no context and no memory** — the toolkit below is how you give it both, keep it safe, and check its work.
 - Because it can run any terminal command, it can in principle do **anything your computer can**.
 
@@ -41,9 +40,11 @@ New here? Install a tool first → [`getting-started/`](getting-started/) · _Pr
 > [!WARNING]
 > **Stay alert anyway.** Safeguards can fail, the tools keep changing, and permission pop-ups get clicked away. Use plan mode, keep backups / version control, and install only what you trust.
 
-## How I use an agent well
+## How I use an agent well, in my experience
 
-The toolkit, in the order it matters. Each row links to its folder, or to a note below.
+You _can_ just put an agent in a folder and start talking to it. But I don't think you _should_ (most of the time). 
+
+Here's a list the tools I use to make my agent better:
 
 | | Step | What it does | Where |
 |:--:|---|---|:--:|
@@ -57,17 +58,18 @@ The toolkit, in the order it matters. Each row links to its folder, or to a note
 | ✅ | **Verification** | Re-runnable checks against a known truth — the new bottleneck. | [`verification/`](verification/) |
 
 > [!TIP]
-> **Plan mode** is the single most useful safety habit. Without it, you find a wrong assumption *after* 12 files changed; with it, you fix the misunderstanding first.
+> **Plan mode** is one of the single most useful habits. Without it, you find a wrong assumption *after* 12 files changed; with it, you fix the misunderstanding first.
 >
-> **Subagents** save time, not tokens (N subagents ≈ N× the quota): `/summarize-paper` fans out across a reading list, `/referee2` runs five specialist auditors at once.
+> **Subagents** save time, not tokens (N subagents ≈ N× the quota).
 
 > [!CAUTION]
 > **MCP** servers run code on your machine. They're powerful — a Zotero MCP can pull a paper (with your highlights) straight into the chat — but install only servers you trust.
 
-## Nothing is lost
+## Claude's Automatic Documentation: Nothing is lost
 
 - Every session is **saved as structured text** at `~/.claude/projects/<dir>/<session-id>.jsonl`: the original prompt, every tool call, subagent, script, error, and retry.
 - The quiet fear is that AI work is a **black box**. It isn't — the full record sits on your machine, **reproducible and auditable**, ready to hand to a co-author or another agent.
+- Still, this is not exactly very readable, so I think the logging in .md files still deserves its place.
 
 ---
 
