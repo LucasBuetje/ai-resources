@@ -1,2 +1,6 @@
 .DS_Store
+.Rhistory
 sync_prompts.py
+
+# Local preservation store — not shared
+archive/
