@@ -28,6 +28,10 @@ The examples below are just that — **examples**. Take the rules that fit how y
 ## Raw data — run, don't read
 - Run a read-only script over raw data; don't read raw data files directly into the chat.
 
+## Progress log
+- Keep a running `log/current.md` per project: append what changed, why, and open questions as you go.
+- Read it back at the start of each session. When I say "log", archive it to a timestamped file and start fresh.
+
 ## Surgical editing
 - Change only what was asked. Don't refactor or reformat adjacent code. Match existing style.
 

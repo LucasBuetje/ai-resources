@@ -4,7 +4,7 @@ The agent can spawn **many subagents** that work in parallel — each on a slice
 
 ## What it's good for
 
-- **Reading list:** [`/summarize-paper`](../skills/summarize-paper/) fans out across many papers at once — done in the time it takes to read one.
+- **Reading list:** ask the agent to run [`/summarize-paper`](../skills/summarize-paper/) on a folder of papers — it spawns one subagent per paper, so a whole stack is summarized in about the time it takes to read one.
 - **Paper audit:** [`/referee2`](../skills/referee2/) runs five specialists simultaneously: code, replication, econometrics, structure, prose.
 - **LLM council:** [`/council`](../skills/council/) sends a question to several models; they critique each other and a chair synthesizes.
 
