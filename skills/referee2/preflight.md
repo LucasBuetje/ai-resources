@@ -19,7 +19,7 @@ Write this plan as a brief checklist in `code/replication/preflight_notes.md` be
 
 ## Step 2: Environment Setup
 
-### Python (mandatory — always use a venv)
+### Python (mandatory — the Python Virtual Environments rule applies)
 
 ```bash
 cd <project_root>

@@ -1,5 +1,7 @@
 ---
 name: deck
+origin: adapted from https://github.com/scunning1975/MixtapeTools
+targets: [claude, opencode, antigravity]
 description: Create or edit a Beamer slide deck. Use when the user asks to build, write, or edit a presentation or slide deck.
 ---
 
@@ -11,7 +13,7 @@ Build or edit a Beamer presentation following the Rhetoric of Decks principles.
 
 ## Step 1: Read the Knowledge Base
 
-Read `~/.claude/skills/deck/rhetoric.md` before doing anything else. It contains the rhetoric principles, slide architecture standards, and LaTeX style template that govern all decks. Use it as your benchmark throughout.
+Open and read the `rhetoric.md` file co-located with this skill (same folder as this SKILL.md) before doing anything else. It contains the rhetoric principles, slide architecture standards, and LaTeX style template that govern all decks. Use it as your benchmark throughout.
 
 ---
 
@@ -35,8 +37,8 @@ Answer these three questions before touching any file:
 If unclear, ask the user before proceeding.
 
 **Q3: What is the tone?**
-- Default: use the HSV palette and Metropolis theme from `rhetoric.md`
-- If a different palette is needed, establish it before starting
+- Default: use the **Hamburg / Konstanz** palette (Konstanz Seeblau + Hamburg red) and Metropolis theme from `rhetoric.md`
+- If a different palette is explicitly requested, establish it before starting
 
 ---
 
@@ -90,7 +92,7 @@ grep "^!" <filename>.log
 
 For overflow warnings, apply the thresholds from `rhetoric.md`. Zero fatal errors required before distributing.
 
-If the deck uses TikZ: before finalising, verify that no labels collide with arrows or box edges, and that all Bézier curves have labels offset from the computed curve position (not guessed).
+If the deck uses TikZ: before finalising, run the `/tikz` skill on each figure — it performs the label-collision, whitespace, and edge-clipping checks; don't re-derive them inline here.
 
 ---
 
@@ -99,7 +101,7 @@ If the deck uses TikZ: before finalising, verify that no labels collide with arr
 When the deck needs data visualisations:
 
 1. Write an R script (`generate_figures.R`) using ggplot2, or a Python script using matplotlib
-2. Use the same colour palette as the LaTeX deck
+2. Use the same colour palette as the LaTeX deck, following the **one-accent-with-tints** rule in `rhetoric.md`: white background, series separated by the Seeblau tint ladder (not multiple hues), textures only beyond four series; Hamburg red reserved for semantic emphasis
 3. Save figures as PDF to a `figures/` subdirectory
 4. Every figure: one message, direct labels, title states the finding
 5. **Always save the script** — never generate a figure without preserving the code that created it

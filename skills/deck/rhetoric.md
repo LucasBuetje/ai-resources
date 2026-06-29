@@ -228,6 +228,8 @@ The deck becomes a letter to someone who shares your goals but not your current 
 
 These are the concrete LaTeX choices behind the project's slide style. Reproduce them for any new deck.
 
+There is one palette: **Hamburg / Konstanz** — Konstanz Seeblau as the primary blue, Hamburg red as the accent. Use it for every deck.
+
 **Theme:** `metropolis` — minimal, modern, no navigation clutter. Compile with `pdflatex`.
 
 **Document class**
@@ -239,36 +241,38 @@ These are the concrete LaTeX choices behind the project's slide style. Reproduce
 
 **Font:** `lmodern` + T1 encoding — safe for pdflatex, clean sans-serif rendering with metropolis.
 
-**Colour palette — Hamburger SV + Hamburg city:**
+**Colour palette — Konstanz Seeblau + Hamburg red:**
 ```latex
-\definecolor{hsvblue}{HTML}{004087}      % HSV Hauptfarbe — primary (frametitles, accents)
-\definecolor{hsvred}{HTML}{DA121A}       % Hamburg city red — accent (progress bar, alerts)
-\definecolor{hsvgray}{HTML}{6B7280}      % neutral gray — secondary text, arrows
-\definecolor{hsvlightgray}{HTML}{F0F3F8} % light blue-tinted gray — code block backgrounds
+\definecolor{seeblau}{HTML}{00A9E0}    % Konstanz Seeblau 100% — primary (structure, frametitle rule, emphasis)
+\definecolor{seeblau65}{HTML}{59C7EB}  % 65% tint
+\definecolor{seeblau35}{HTML}{A6E1F4}  % 35% tint
+\definecolor{seeblau20}{HTML}{CCEEF9}  % 20% tint — block/nav backgrounds
+\definecolor{hamburgred}{HTML}{DA121A} % Hamburg red — accent (warnings, alerts)
+\definecolor{slategray}{HTML}{6B7280}  % neutral gray — secondary text, arrows
 ```
-Three functional roles: **blue** = structure and emphasis, **red** = warnings and accents, **gray** = secondary information.
+There are several Seeblaus; this uses the standard digital (web sRGB) Seeblau `#00A9E0` and its official tint ladder. Three functional roles: **Seeblau** = structure and emphasis, **Hamburg red** = warnings and alerts, **gray** = secondary information.
 
 **Metropolis colour settings:**
 ```latex
 \setbeamercolor{background canvas}{bg=white}
-\setbeamercolor{frametitle}{bg=hsvlightgray, fg=hsvblue}
-\setbeamercolor{progress bar}{fg=hsvred}
-\setbeamercolor{title separator}{fg=hsvred}
-\setbeamercolor{alerted text}{fg=hsvred}
-\setbeamercolor{example text}{fg=hsvblue}
-\setbeamercolor{palette primary}{bg=hsvblue, fg=white}
+\setbeamercolor{frametitle}{bg=white, fg=black}   % black headline on white + Seeblau separator rule
+\setbeamercolor{progress bar}{fg=seeblau}
+\setbeamercolor{title separator}{fg=seeblau}
+\setbeamercolor{alerted text}{fg=hamburgred}
+\setbeamercolor{example text}{fg=seeblau}
+\setbeamercolor{palette primary}{bg=seeblau, fg=black}
 
-% Blocks: light and elegant, no heavy fill
-\setbeamercolor{block title}{bg=hsvlightgray, fg=hsvblue}
-\setbeamercolor{block body}{bg=hsvlightgray!25, fg=black}
+% Blocks: Seeblau title bar, faint 20%-tint body
+\setbeamercolor{block title}{bg=seeblau, fg=black}
+\setbeamercolor{block body}{bg=seeblau20, fg=black}
 ```
-Slide background: pure white (`background canvas` — metropolis default is slightly warm gray). Frame titles: blue text on `hsvlightgray` — subtle separation without a heavy dark bar. Title slide (`palette primary`): HSV blue background, white text. Progress bar + separator line: Hamburg red.
+Slide background: pure white (`background canvas` — metropolis default is slightly warm gray). Frame titles: **black on white** with a thin Seeblau separator rule beneath — the Konstanz page-header look, far more readable than light Seeblau as title text. Title slide (`palette primary`): Seeblau background with **black** text (white-on-Seeblau fails contrast; black on Seeblau is ~8:1). Progress bar + separator line: Seeblau.
 
-**Blocks**: Title bar in `hsvlightgray` with blue text (consistent with frametitles). Body in very light `hsvlightgray!25` — subtle enough to stay light, visible enough to separate from white slide background. **Do NOT use `\metroset{block=fill}`** — it overrides these custom colors with Metropolis defaults (heavy gray). Alertblocks automatically get red accents for important content.
+**Blocks**: Title bar in Seeblau with black text. Body in the 20% tint `seeblau20` — light enough to stay quiet, visible enough to separate from the white slide. **Do NOT use `\metroset{block=fill}`** — it overrides these custom colors with Metropolis defaults (heavy gray). Alertblocks automatically get Hamburg-red accents for important content.
 
 **Section navigation headline (miniframes progress bar):**
 ```latex
-\setbeamercolor{section in head/foot}{bg=hsvlightgray, fg=hsvblue}
+\setbeamercolor{section in head/foot}{bg=white, fg=seeblau}
 \makeatletter
 \setbeamertemplate{headline}{%
   \nointerlineskip%
@@ -283,9 +287,9 @@ Shows section names with miniframe dots across the top of each slide. The `\vbox
 
 **Standard macros:**
 ```latex
-\newcommand{\yes}{\textcolor{hsvblue}{\faCheck}}           % done
-\newcommand{\warn}{\textcolor{hsvred}{\faExclamationTriangle}} % issue
-\newcommand{\todo}{\textcolor{hsvgray}{\faCircle[regular]}} % pending
+\newcommand{\yes}{\textcolor{seeblau}{\faCheck}}           % done
+\newcommand{\warn}{\textcolor{hamburgred}{\faExclamationTriangle}} % issue
+\newcommand{\todo}{\textcolor{slategray}{\faCircle[regular]}} % pending
 \newcommand{\fp}[1]{\texttt{\footnotesize #1}} % file path
 \newcommand{\wave}[1]{\textbf{W#1}}        % wave reference, e.g. W3
 ```
@@ -295,12 +299,43 @@ Requires `fontawesome5`. Note: `\fp` instead of `\path` — the latter is reserv
 
 ---
 
+## The Emphasis-and-Underline Motif (Markieren & Unterstreichen)
+
+The Konstanz design treats *emphasis* and *underlining* as core visual language — the gestures of a reader marking up a text. Adopt them as a disciplined way to emphasise, replacing the temptation to bold-everything. Underlining requires `\usepackage{soul}`.
+
+```latex
+\usepackage{soul}
+\setulcolor{seeblau}     % underline colour
+\setul{2pt}{.4pt}        % lower the rule slightly, thin weight
+\newcommand{\mk}[1]{\textcolor{seeblau}{\textbf{#1}}}   % Markieren: bold Seeblau text
+% \ul{...}  → Unterstreichen: Seeblau underline rule under the text
+```
+`\mk` sets the phrase in **bold Seeblau text** — never a filled highlight block (`\hl`). The blue background fill reads as heavy and clashes with the clean Konstanz look; bold coloured text carries the same emphasis without the box. Use sparingly — `\mk` for the one phrase on a slide that must land, `\ul` for a subline or a key term. Emphasis marks *what matters*; if half the slide is emphasised, nothing is. (`soul`'s `\ul` wraps across line breaks, unlike `\underline`.)
+
+---
+
+## One-Accent-with-Tints Figures
+
+Charts use **white backgrounds and the Seeblau tint ladder to separate series — never a rainbow**. Apply this to both the LaTeX deck and the R/Python figure step (Step 5 of the skill): a chart with up to four series uses the 100/65/35/20% tints in that order; only beyond four series introduce textures (hatching, dots) rather than new hues. Hamburg red stays reserved for semantic emphasis (a highlighted coefficient, a warning), not as a routine series colour.
+
+```r
+# ggplot2 — Seeblau tint scale (100/65/35/20%)
+seeblau <- c("#00A9E0", "#59C7EB", "#A6E1F4", "#CCEEF9")
+scale_fill_manual(values = seeblau); scale_colour_manual(values = seeblau)
+theme_minimal() +
+  theme(panel.background = element_rect(fill = "white", colour = NA),
+        panel.grid.minor = element_blank())
+```
+Useful line weights: solid baseline 1.0pt, gridlines/dashed 0.4pt, plotted curves 2.0pt, bars 5–7.5mm wide. Keep the existing figure rules (one message, direct labels, title states the finding) on top of this — the tint discipline governs *colour*, not the rest.
+
+---
+
 ## Checking for Overflow (Workflow)
 
 After every LaTeX deck compile, run:
 
 ```bash
-pdflatex -interaction=nonstopmode deck.tex 2>&1 | grep "Overfull" | grep -v "hyperref\|beamer"
+pdflatex -interaction=nonstopmode <filename>.tex 2>&1 | grep "Overfull" | grep -v "hyperref\|beamer"
 ```
 
 This filters out the two noisy false-positive sources (`hyperref` token warnings, `beamerthememetropolis` XeLaTeX warning) and shows only real overflows with their line numbers and sizes.

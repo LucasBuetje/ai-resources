@@ -1,6 +1,8 @@
 ---
 name: revise
-description: Structure a response to referee or reviewer comments interactively, one comment at a time. Classifies each point, drafts responses, and waits for user approval before proceeding. Use when responding to referee2 reports, journal referee reports, or co-author feedback.
+origin: self
+targets: [claude, opencode, antigravity]
+description: Structure a response to referee or reviewer comments interactively, one comment at a time. Classifies each point, drafts responses, and waits for user approval before proceeding. Use when responding to referee2 reports, journal referee reports, or co-author feedback. Do not auto-invoke (e.g. at the end of a referee2 run) — always wait for the user to explicitly ask.
 argument-hint: "[referee-report file path] [paper/project path (optional)]"
 ---
 
@@ -16,7 +18,7 @@ Work through referee or reviewer comments interactively — one at a time, with 
 
 1. Read the referee report from `$ARGUMENTS`
 2. If a paper or project path is provided, read the relevant files (`.tex`, `.R`, `.py`) to understand what currently exists
-3. If no paper path is provided, ask the user before proceeding
+3. If no paper path is provided, note this and continue — classification (Step 2) and CLARIFICATION/REWRITE drafts need only the report text. Ask for the paper path when a comment actually requires it (NEW ANALYSIS, or locating exact section references)
 
 ---
 
@@ -38,13 +40,13 @@ Do these classifications look right? Adjust any before we proceed.
 
 **Classification key:**
 
-| Class | Meaning |
-|---|---|
-| **NEW ANALYSIS** | Requires new code, data, or results not currently in the project |
+| Class             | Meaning                                                            |
+| ----------------- | ------------------------------------------------------------------ |
+| **NEW ANALYSIS**  | Requires new code, data, or results not currently in the project   |
 | **CLARIFICATION** | The analysis is fine; the writing or explanation needs improvement |
-| **REWRITE** | A section needs structural revision, not just clarification |
-| **DISAGREE** | The comment is incorrect, unfair, or based on a misreading |
-| **MINOR** | Typo, formatting, small wording fix |
+| **REWRITE**       | A section needs structural revision, not just clarification        |
+| **DISAGREE**      | The comment is incorrect, unfair, or based on a misreading         |
+| **MINOR**         | Typo, formatting, small wording fix                                |
 
 Wait for the user to confirm or adjust before continuing.
 
@@ -55,6 +57,7 @@ Wait for the user to confirm or adjust before continuing.
 After classifications are confirmed, go through each comment sequentially. For each one:
 
 **Present the comment:**
+
 ```
 --- Comment 2 of N [CLARIFICATION] ---
 
@@ -64,6 +67,7 @@ After classifications are confirmed, go through each comment sequentially. For e
 **Draft a response** based on the classification (see protocols below).
 
 **Present the draft and wait:**
+
 ```
 Draft response:
 
@@ -86,24 +90,37 @@ Draft the fix directly and concisely.
 
 **NEW ANALYSIS:**
 Do not attempt to draft results. Instead:
+
 ```
 This requires new analysis: [describe what would be needed].
 Placeholder response: "We thank the referee for this suggestion. We have [conducted / plan to conduct] [brief description]. Results are reported in [Section X / Table Y]."
 Mark as TBD — fill in once the analysis is done.
 ```
+
 Flag clearly and confirm the user wants to proceed before moving on.
 
 **DISAGREE:**
-Follow the diplomatic disagreement protocol:
+First, do the judgment the classification skips. A DISAGREE label is the user's
+instinct, not a verdict — and the whole value of revising is recognizing valid
+critique, not manufacturing a defense against it. Before drafting anything,
+steelman the referee: state the strongest version of their point and assess
+whether it is, even partly, correct. If there is a credible chance it is, say so
+plainly and make the referee's case before helping rebut it. Do not reflexively
+side with the user. Only once the user has genuinely confronted the critique and
+still holds that it does not apply, proceed to the diplomatic disagreement
+protocol:
+
 1. Open by acknowledging the legitimate concern behind the comment
 2. Provide evidence for why the critique does not apply, or where it is already addressed
 3. Offer a partial concession if honest (a clarifying sentence, footnote, or caveat)
 4. Never say "the referee is wrong" or "we disagree" directly
 
 Present the draft, then add:
+
 ```
 ⚠ DISAGREE — please review this response carefully before it goes anywhere.
 ```
+
 Wait for explicit approval.
 
 ---
@@ -112,7 +129,8 @@ Wait for explicit approval.
 
 After all comments are approved, compile:
 
-**1. Tracking document** (`revise_tracker.md`):
+**1. Tracking document** (`revise_tracker_[date].md` — date-stamped like the response letter, so successive revision rounds don't overwrite each other):
+
 ```markdown
 # Referee Response Tracker
 **Report:** [filename]
@@ -130,6 +148,7 @@ After all comments are approved, compile:
 ```
 
 **2. Response letter** (`revise_response_[date].md`):
+
 ```markdown
 # Response to Referee Report
 
@@ -162,4 +181,5 @@ Save both files to the project directory (or current directory if no project pat
 - **The response letter is your voice.** Match the user's tone throughout.
 - **Never fabricate results.** NEW ANALYSIS items are always TBD.
 - **Flag all DISAGREE items.** These require explicit user approval before going anywhere.
+- **Disagreement is a judgment, not a default.** On DISAGREE items, steelman the referee before helping the user rebut. The skill's job is to test the user's read of the critique, not to build a defense for it.
 - **Every comment gets a response.** Nothing is ignored.
