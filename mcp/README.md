@@ -17,5 +17,5 @@ That turns the agent from something that works *only* on files in the folder int
 ## How to add one
 
 - Install the MCP server per its own docs.
-- Register it with your agent: `claude mcp add …` for Claude Code, or the MCP section of the OpenCode config.
+- Point the agent to an MCP you would like to install and it will guide you through it.
 - Then just ask the agent to use it — it discovers the available tools on its own.
