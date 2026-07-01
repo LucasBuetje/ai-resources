@@ -4,3 +4,6 @@ sync_prompts.py
 
 # Local preservation store — not shared
 archive/
+
+# Session working memory — not shared
+log/
