@@ -18,12 +18,12 @@ _**Provided as-is; use at your own risk.**_ · Reach out: lucas.buetje.economist
 
 ## Get an agent
 
-Don't have one installed yet? Pick one and follow its official install page:
+Don't have one installed yet? Most likely, the AI provider you are already using has one. Here's a selection:
 
 | Provider | Agent | Install |
 |---|---|---|
 | Anthropic | Claude Code | [claude.com/product/claude-code](https://claude.com/product/claude-code) |
-| OpenAI | Codex CLI | [github.com/openai/codex](https://github.com/openai/codex) |
+| OpenAI | Codex | [https://openai.com/codex](https://openai.com/codex/) |
 | Google | Antigravity | [antigravity.google](https://antigravity.google) |
 
 Everything in this repo is written from a Claude Code perspective, but applies to the others too (see the note above).
