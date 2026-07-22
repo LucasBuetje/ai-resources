@@ -16,6 +16,18 @@ _**Provided as-is; use at your own risk.**_ · Reach out: lucas.buetje.economist
 
 ---
 
+## Get an agent
+
+Don't have one installed yet? Most likely, the AI provider you are already using has one. Here's a selection:
+
+| Provider | Agent | Install |
+|---|---|---|
+| Anthropic | Claude Code | [claude.com/product/claude-code](https://claude.com/product/claude-code) |
+| OpenAI | Codex | [openai.com/codex](https://openai.com/codex/) |
+| Google | Antigravity | [antigravity.google](https://antigravity.google) |
+
+Everything in this repo is written from a Claude Code perspective, but applies to the others too (see the note above).
+
 ## What an AI agent is
 
 - An LLM that can actually **_do real work_** - by running commands on your computer.
@@ -66,7 +78,6 @@ Here's a list of the tools I use to make my agent better.
 | 👥 | **Subagents** | A team working in parallel, each on a slice, then reporting back. | [`subagents/`](subagents/) |
 | 🔌 | **MCP** | Plug the agent into external tools (e.g. a Zotero library). | [`mcp/`](mcp/) |
 | 🪝 | **Hooks** | Your conventions enforced by code, not trust. | [`hooks/`](hooks/) |
-| ✅ | **Verification** | Re-runnable checks against a known truth — the new bottleneck. | [`verification/`](verification/) |
 
 > [!TIP]
 > **You don't have to set any of this up by hand.** Just ask the agent and it does it for you — for example:
