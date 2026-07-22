@@ -23,7 +23,7 @@ Don't have one installed yet? Most likely, the AI provider you are already using
 | Provider | Agent | Install |
 |---|---|---|
 | Anthropic | Claude Code | [claude.com/product/claude-code](https://claude.com/product/claude-code) |
-| OpenAI | Codex | [https://openai.com/codex](https://openai.com/codex/) |
+| OpenAI | Codex | [openai.com/codex](https://openai.com/codex/) |
 | Google | Antigravity | [antigravity.google](https://antigravity.google) |
 
 Everything in this repo is written from a Claude Code perspective, but applies to the others too (see the note above).
