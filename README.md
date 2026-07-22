@@ -16,6 +16,20 @@ _**Provided as-is; use at your own risk.**_ · Reach out: lucas.buetje.economist
 
 ---
 
+## Get an agent
+
+Don't have one installed yet? Pick one and follow its official install page:
+
+| Provider | Agent | Install |
+|---|---|---|
+| Anthropic | Claude Code | [claude.com/product/claude-code](https://claude.com/product/claude-code) |
+| OpenAI | Codex CLI | [github.com/openai/codex](https://github.com/openai/codex) |
+| Google | Gemini CLI | [github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) |
+| Google | Antigravity (agentic IDE) | [antigravity.google](https://antigravity.google) |
+| Open source, any provider | OpenCode | [opencode.ai](https://opencode.ai) |
+
+Everything in this repo is written from a Claude Code perspective, but applies to the others too (see the note above).
+
 ## What an AI agent is
 
 - An LLM that can actually **_do real work_** - by running commands on your computer.
