@@ -62,7 +62,7 @@ Here's a list of the tools I use to make my agent better.
 
 **The basics** — I set these up for every project:
 
-| | Step | What it does | Where |
+| | Feature | What it does | Details |
 |:--:|---|---|:--:|
 | 📋 | **Context** | A `CLAUDE.md` the agent reads every session — how *you* work, what *this* project is. | [`claude-md/`](claude-md/) |
 | 🧠 | **Memory** | A running `log/current.md` that carries working memory across sessions. | [`memory-log/`](memory-log/) |
@@ -70,7 +70,7 @@ Here's a list of the tools I use to make my agent better.
 
 **More specialized** — reach for these as the task calls for it:
 
-| | Step | What it does | Where |
+| | Feature | What it does | Details |
 |:--:|---|---|:--:|
 | ⚡ | **Skills** | Reusable one-command recipes — `/summarize-paper`, `/referee2`, … (11 of them). | [`skills/`](skills/) |
 | 👥 | **Subagents** | A team working in parallel, each on a slice, then reporting back. | [`subagents/`](subagents/) |
