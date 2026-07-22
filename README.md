@@ -24,9 +24,7 @@ Don't have one installed yet? Pick one and follow its official install page:
 |---|---|---|
 | Anthropic | Claude Code | [claude.com/product/claude-code](https://claude.com/product/claude-code) |
 | OpenAI | Codex CLI | [github.com/openai/codex](https://github.com/openai/codex) |
-| Google | Gemini CLI | [github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) |
-| Google | Antigravity (agentic IDE) | [antigravity.google](https://antigravity.google) |
-| Open source, any provider | OpenCode | [opencode.ai](https://opencode.ai) |
+| Google | Antigravity | [antigravity.google](https://antigravity.google) |
 
 Everything in this repo is written from a Claude Code perspective, but applies to the others too (see the note above).
 
