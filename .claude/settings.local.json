@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(awk '{ if \\(NF\\) print }')",
+      "Bash(xargs -n1 basename)"
+    ]
+  }
+}
