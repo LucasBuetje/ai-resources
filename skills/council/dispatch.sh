@@ -28,7 +28,7 @@ run() {
     bash "$here/ask_member.sh" "$1" "$2" "$promptfile" > "$outdir/$3.txt" 2>/dev/null
 }
 
-run agy   "Gemini 3.1 Pro (High)"  gemini  &
+run agy   "gemini-4-argon-medium"  gemini  &
 run codex "gpt-5.5"                 openai  &
 run vibe  "mistral-medium-3.5"      mistral &
 wait
