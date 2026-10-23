@@ -149,6 +149,33 @@ Everything else is for the appendix, the paper, the follow-up conversation. The 
 
 ---
 
+## The Aristotelian Triad
+
+Every deck persuades on three channels at once. Naming them makes the balance a choice
+rather than an accident.
+
+**Ethos — credibility.** The audience asks: *why should I trust this person?* Ethos lives in
+the identification-strategy slide, the Devil's Advocate slide, the honest scorecard, the
+acknowledged limitation. Admitting a weakness builds credibility; hiding one that a listener
+can see destroys it.
+
+**Pathos — why care.** The audience asks: *why does this matter?* Pathos lives in the opening
+hook, the stakes, the human consequence behind the coefficient, the aspiration. Pathos without
+logos is demagoguery.
+
+**Logos — does it hold.** The audience asks: *does this make sense?* Logos lives in the
+figures, the comparison tables, the causal diagram, the flow from problem to conclusion.
+Logos without pathos is a lecture nobody remembers.
+
+There is no formula for the mix — the audience sets it. An academic seminar is logos-heavy
+with substantial ethos and almost no pathos; a policy talk inverts that. The per-audience
+balance table lives in the `deck` skill's triage step (Q2); use it when confirming the
+audience, and let it drive which slides get built at all. A deck that opens with the
+identification strategy in front of a policy audience is not too technical — it is spending
+its budget on the wrong channel.
+
+---
+
 ## Anxiety Makes Decks Worse
 
 When you're nervous about presenting, you put more on the slides. More text, more backup, more "just in case." The slides become a security blanket.
