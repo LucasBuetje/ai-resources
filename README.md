@@ -65,7 +65,7 @@ Here's a list of the tools I use to make my agent better.
 | | Feature | What it does | Details |
 |:--:|---|---|:--:|
 | 📋 | **Context** | A `CLAUDE.md` the agent reads every session — how *you* work, what *this* project is. | [`claude-md/`](claude-md/) |
-| 🧠 | **Memory** | A running `log/current.md` that carries working memory across sessions. | [`memory-log/`](memory-log/) |
+| 🧠 | **Memory** | A running `current.md` in the project root that carries working memory across sessions. | [`memory-log/`](memory-log/) |
 | 📝 | **Plan mode** | The agent plans; you approve; *then* it edits. | [`plan-mode/`](plan-mode/) |
 
 **More specialized** — reach for these as the task calls for it:

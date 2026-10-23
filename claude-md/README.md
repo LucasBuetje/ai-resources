@@ -29,7 +29,7 @@ The examples below are just that — **examples**. Take the rules that fit how y
 - Run a read-only script over raw data; don't read raw data files directly into the chat.
 
 ## Progress log
-- Keep a running `log/current.md` per project: append what changed, why, and open questions as you go.
+- Keep a running `current.md` in each project root: append what changed, why, and open questions as you go.
 - Read it back at the start of each session. When I say "log", archive it to a timestamped file and start fresh.
 
 ## Surgical editing
@@ -67,5 +67,5 @@ One or two lines: the research question, the deliverable, the current stage.
 - R 4.4; always recompile the LaTeX doc after editing and fix until it builds
 - Build the deck with the `/deck` skill
 - Cluster standard errors at the `<unit>` level unless told otherwise
-- Open questions live in `log/current.md`
+- Open questions live in `current.md`
 ```

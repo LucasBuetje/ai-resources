@@ -10,7 +10,7 @@ Small scripts the agent tool runs automatically at set moments — *before* a co
 
 - **`guard-rm.sh`** — *PreToolUse (Bash).* Blocks `rm` on project files and tells the agent to `mv <file> archive/` instead. Allows genuinely disposable targets (temp dirs, caches, build output, `git rm`). A footgun-catcher, not a security boundary.
 - **`warn-pdf-mainthread.sh`** — *PreToolUse (Read).* Non-blocking warning when reading a `.pdf`: page images loaded in the main thread accumulate and can make a session unrecoverable. Suggests a subagent / `/summarize-paper` for research papers; lets slides and notes through.
-- **`session-start-current-log.sh`** — *SessionStart.* Reads `log/current.md` and injects it into context, so the agent always opens with the working memory from last session. (Pairs with the memory-log pattern — see [`../memory-log/`](../memory-log/).)
+- **`session-start-current-log.sh`** — *SessionStart.* Reads `current.md` from the project root (falling back to the older `log/current.md`) and injects it into context, so the agent always opens with the working memory from last session. (Pairs with the memory-log pattern — see [`../memory-log/`](../memory-log/).)
 
 ## Wiring (`~/.claude/settings.json`)
 
