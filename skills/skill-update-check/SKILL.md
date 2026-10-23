@@ -40,9 +40,8 @@ Try these candidate paths in order, constructing `https://raw.githubusercontent.
 If all four miss on `refs/heads/main`, retry the same candidates with `refs/heads/master` (older repos).
 
 Also try common name aliases for known divergences (the local folder name often differs from the upstream file name):
-- `summarize-paper`, `split-pdf-antigravity` → also try `split-pdf` (both adapted from MixtapeTools' `split-pdf`; `summarize-paper` has since diverged heavily — it no longer chunks — so expect large divergence)
+- `summarize-paper` → also try `split-pdf` (adapted from MixtapeTools' `split-pdf`; the local skill reads the whole paper in one pass, so expect large divergence)
 - `deck` → also try `beautiful_deck`
-- `verify-pdf-antigravity` → also try `split-pdf`
 - `blindspot`, `bibcheck`, `tikz`, `referee2` (MixtapeTools) → if the four standard candidates miss, fetch the repo's root listing (`https://github.com/<user>/<repo>`) and search it for a file or folder whose name resembles the skill name (e.g. `personas/referee2.md`); use the discovered path
 - **When adding a new `origin: adapted from <repo>` skill whose upstream name differs from the local folder name, add an alias line here** — otherwise it will silently land in source-not-found
 
@@ -52,7 +51,7 @@ If no candidate yields content, mark the skill as **source-not-found**.
 
 ## Phase 3 — Fetch and compare (parallel agents)
 
-Spawn one Agent (Haiku) per skill with a resolved URL. Each agent:
+Spawn one Agent (Sonnet — classifying a diff as none/moderate/substantial is a judgment call, the Subagent Model Default) per skill with a resolved URL. Each agent:
 
 1. Fetches the upstream file via `WebFetch`
 2. Reads the local `SKILL.md`
@@ -62,7 +61,7 @@ Spawn one Agent (Haiku) per skill with a resolved URL. Each agent:
    - **substantial** — new phases, changed core behavior, new tool requirements, restructured workflow, significantly expanded scope
 4. Returns `{ skill, status, summary, upstream_url }`
 
-Note: divergence from upstream is expected for the PDF-reader skills (`summarize-paper`, `split-pdf-antigravity` — backend-specific adaptations; `summarize-paper` has diverged completely) and `premortem` (domain adaptation). Flag changes but weight them accordingly.
+Note: divergence from upstream is expected for `summarize-paper` (diverged completely from `split-pdf`) and `premortem` (domain adaptation). Flag changes but weight them accordingly.
 
 ---
 
@@ -105,4 +104,3 @@ After any **Adopt**: remind the user to run `bash build.sh && bash apply.sh --ye
 
 - **WebFetch fails**: note per skill, continue with others
 - **Upstream is not a SKILL.md** (e.g. a narrative `.md` like `personas/referee2.md`): compare anyway; note the format difference
-- **PDF-reader skills**: fetch the upstream `split-pdf` source once and reuse it for both `summarize-paper` and `split-pdf-antigravity`

@@ -1,8 +1,8 @@
 ---
 name: blindspot
 origin: adapted from https://github.com/scunning1975/MixtapeTools
-targets: [claude, opencode, antigravity]
-description: Peripheral vision audit for empirical output. Finds what the author cannot see — problems hiding in plain sight (vices) and opportunities being overlooked (virtues). Inspired by Viktor Shklovsky's defamiliarization and conversations with Jason Fletcher. Use when output exists and interpretation is about to happen.
+targets: [claude, opencode, antigravity, vibe]
+description: "Peripheral-vision audit of empirical output — problems hiding in plain sight and opportunities being overlooked. Use when results exist and interpretation is about to happen."
 allowed-tools: Read, Write, Bash(ls*), Grep
 argument-hint: '[path-to-figure, table, or results file] [brief description of what you think the main finding is]'
 ---

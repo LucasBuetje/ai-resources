@@ -1,8 +1,8 @@
 ---
 name: tikz
 origin: adapted from https://github.com/scunning1975/MixtapeTools
-targets: [claude, opencode, antigravity]
-description: Quick visual-collision check for figures — TikZ inside .tex files OR rendered .png/.jpg/.pdf figures from R/Python. Three checks only. (1) Bezier-curve label collisions via gap math. (2) Label-to-object whitespace. (3) Labels touching or running off the figure edge. These are the visual errors that compile cleanly — pdflatex never warns about them, ggsave never refuses to write them, so the agent that produced them does not know they are wrong. Use after generating any figure where visual correctness matters and you cannot eyeball it yourself.
+targets: [claude, opencode, antigravity, vibe]
+description: "Visual-collision check for figures — TikZ in .tex, or rendered .png/.jpg/.pdf from R/Python: label collisions, whitespace, labels off the edge. Use after generating a figure you cannot eyeball yourself."
 allowed-tools: Bash(grep*), Bash(ls*), Bash(file*), Bash(wc*), Read
 argument-hint: [path/to/file.tex | path/to/figure.png | path/to/figure.pdf]
 ---
@@ -11,7 +11,7 @@ argument-hint: [path/to/file.tex | path/to/figure.png | path/to/figure.pdf]
 
 A small, fast collision check for figures. Three checks. Catches the class of error that produces no warning, no error, no exit code — only a wrong-looking figure that the producing agent cannot see.
 
-This skill replaced an earlier six-pass version that ran an entire-file re-audit after every fix. That version timed out on real decks. This version does **three checks, one pass, exits**. If you want more, run it again.
+**Three checks, one pass, exit.** Re-auditing a whole file after every fix grows quadratically and times out on real decks; if you want more, run the skill again on a narrower scope.
 
 ---
 
@@ -158,13 +158,13 @@ Then **stop**. The user reviews and edits. If they want a deeper look at a speci
 ## What this skill does NOT do
 
 - It does not iterate. One pass, one report, exit.
-- It does not re-audit the whole file after a fix. That's the quadratic blowup that killed the previous version.
+- It does not re-audit the whole file after a fix.
 - It does not run `pdflatex` in a loop.
 - It does not eyeball multi-page PDFs. PDF mode is single-figure only; for decks, point it at the source `.tex` instead.
-- It does not perform cross-slide consistency checks, autosized-node detection, scale-factor compensation, or the four other passes the previous version did. If you want those, the prior behavior is in git history before this commit.
+- It does not perform cross-slide consistency checks, autosized-node detection, or scale-factor compensation (the `deck` skill's safe-generation defaults cover those at write time).
 
 ---
 
 ## Why narrow
 
-Visual errors that don't produce compile errors are the class Claude Code fundamentally cannot detect during normal work. The agent compiles, sees no warnings, declares done — and the figure has a label sitting on a curve. Three checks, focused on the three errors that compile cleanly, finishing in under five minutes per figure. That is the entire value proposition.
+Visual errors that don't produce compile errors are the class an agent cannot detect during normal work: it compiles, sees no warnings, declares done — and the figure has a label sitting on a curve. Three checks, focused on the three errors that compile cleanly.
