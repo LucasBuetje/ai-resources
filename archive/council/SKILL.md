@@ -1,7 +1,6 @@
 ---
 name: council
 description: Convene a multi-model "council" to answer a hard question — four different model families answer in parallel, anonymously peer-rank each other, and a Claude Opus chairman synthesizes the final answer. Adaptation of karpathy/llm-council for local CLIs (agy, codex, vibe) plus Claude subagents. Can judge attached material: point it at project files (R scripts, .tex/.md drafts, data dictionaries) or paste content inline, and every member sees it (PDFs are extracted to text by a subagent first). Use when the user wants cross-model consensus, a second/third opinion, or maximum-confidence judgment on open-ended, high-stakes, or contested questions — invoke on "/council", "ask the council", "convene the council", "council on …". Not for quick factual lookups (the fan-out costs ~9 model calls).
-targets: [claude]
 origin: adapted from https://github.com/karpathy/llm-council
 ---
 
@@ -30,7 +29,7 @@ Four families, no overlap except Anthropic (one member + the chairman).
 
 | # | Member | How it's called | Family |
 |---|---|---|---|
-| 1 | Gemini 3.1 Pro | Bash: `agy` | Google |
+| 1 | Gemini 4 Argon (medium) | Bash: `agy` | Google |
 | 2 | GPT-5.5 | Bash: `codex` (ChatGPT sign-in, reasoning high) | OpenAI |
 | 3 | Mistral Medium 3.5 | Bash: `vibe` (Mistral auth, thinking high) | Mistral |
 | 4 | Claude Sonnet 4.6 | native subagent (`model: sonnet`) | Anthropic |
@@ -38,7 +37,7 @@ Four families, no overlap except Anthropic (one member + the chairman).
 
 Exact backend strings (verified working):
 
-- Gemini → `bash <skilldir>/ask_member.sh agy "Gemini 3.1 Pro (High)" <promptfile>`
+- Gemini → `bash <skilldir>/ask_member.sh agy "gemini-4-argon-medium" <promptfile>`
 - GPT-5.5 → `bash <skilldir>/ask_member.sh codex "gpt-5.5" <promptfile>`
 - Mistral → `bash <skilldir>/ask_member.sh vibe "mistral-medium-3.5" <promptfile>`
 
@@ -190,7 +189,7 @@ Keep the path→content map; both stage prompts reference the same `context.md`.
 4. Aggregate with the helper. Build a JSON object and pipe it to `borda.py`:
 
    ```bash
-   echo '{"members":["Gemini 3.1 Pro","GPT-5.5","Mistral Medium 3.5","Claude Sonnet 4.6"],
+   echo '{"members":["Gemini 4 Argon","GPT-5.5","Mistral Medium 3.5","Claude Sonnet 4.6"],
           "rankings":[[…],[…],[…],[…],[…]]}' \
      | python3 ~/.claude/skills/council/borda.py
    ```

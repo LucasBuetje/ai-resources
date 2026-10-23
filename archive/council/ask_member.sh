@@ -3,7 +3,7 @@
 #
 # Usage: ask_member.sh <backend> <model> <promptfile>
 #   backend     agy | codex | vibe
-#   model       agy display name (e.g. "Gemini 3.1 Pro (High)") or codex model id
+#   model       agy model id (e.g. "gemini-4-argon-medium") or codex model id
 #               (e.g. "gpt-5.5"); ignored for vibe (uses ~/.vibe active_model)
 #   promptfile  path to a file holding the full prompt
 #

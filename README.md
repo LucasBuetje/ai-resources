@@ -10,7 +10,7 @@
 > [!NOTE]
 > - **Treat this as a menu, not a template.** Don't clone it and expect it to "work" — it's here to inspire and be picked from. Take what fits how you work, adapt it, ignore the rest.
 > - **Agentic AI is the focus:** Plain chat and other tools have been demoted to a footnote (just as they have been in my workflow) → [`non-agentic/`](non-agentic/).
-> - **Written from a Claude Code perspective** — that's what I use, so the paths and commands here are Claude's. But Codex, Antigravity, OpenCode and the other agents work the same way; almost everything here applies to them too. When in doubt, just ask your agent for its equivalent.
+> - **Written from a Claude Code perspective** — that's what I use, so the paths and commands here are Claude's.
 
 _**Provided as-is; use at your own risk.**_ · Reach out: lucas.buetje.economist@outlook.com
 
@@ -25,13 +25,11 @@ _**Provided as-is; use at your own risk.**_ · Reach out: lucas.buetje.economist
 
 ## Get an agent
 
-Don't have one installed yet? Most likely, the AI provider you are already using has one. Here's a selection:
+Don't have one installed yet? This repo is built around Claude Code:
 
 | Provider | Agent | Install |
 |---|---|---|
 | Anthropic | Claude Code | [claude.com/product/claude-code](https://claude.com/product/claude-code) |
-| OpenAI | Codex | [openai.com/codex](https://openai.com/codex/) |
-| Google | Antigravity | [antigravity.google](https://antigravity.google) |
 
 ## Risks and safeguards
 
@@ -65,14 +63,14 @@ Here's a list of the tools I use to make my agent better.
 | | Feature | What it does | Details |
 |:--:|---|---|:--:|
 | 📋 | **Context** | A `CLAUDE.md` the agent reads every session — how *you* work, what *this* project is. | [`claude-md/`](claude-md/) |
-| 🧠 | **Memory** | A running `log/current.md` that carries working memory across sessions. | [`memory-log/`](memory-log/) |
+| 🧠 | **Memory** | A running `current.md` in the project root that carries working memory across sessions. | [`memory-log/`](memory-log/) |
 | 📝 | **Plan mode** | The agent plans; you approve; *then* it edits. | [`plan-mode/`](plan-mode/) |
 
 **More specialized** — reach for these as the task calls for it:
 
 | | Feature | What it does | Details |
 |:--:|---|---|:--:|
-| ⚡ | **Skills** | Reusable one-command recipes — `/summarize-paper`, `/referee2`, … (11 of them). | [`skills/`](skills/) |
+| ⚡ | **Skills** | Reusable one-command recipes — `/summarize-paper`, `/referee2`, … (9 of them). | [`skills/`](skills/) |
 | 👥 | **Subagents** | A team working in parallel, each on a subtask, then reporting back. | [`subagents/`](subagents/) |
 | 🔌 | **MCP** | Plug the agent into external tools (e.g. a Zotero library). | [`mcp/`](mcp/) |
 | 🪝 | **Hooks** | Your conventions enforced by code, not trust. | [`hooks/`](hooks/) |
@@ -84,6 +82,22 @@ Here's a list of the tools I use to make my agent better.
 > - *"Use one subagent per paper."*
 >
 > The folders above are examples to point it at, not chores for you.
+
+## What's in the box
+
+**Skills** (each runs with `/<name>`; details in [`skills/`](skills/)):
+
+- **Reading** — [`/summarize-paper`](skills/summarize-paper/): _TODO (Lucas): what summarize-paper does and why to use it_
+- **Writing** — [`/econ-write`](skills/econ-write/): _TODO (Lucas): econ-write_ · [`/number-check`](skills/number-check/): _TODO (Lucas): number-check_
+- **Code** — [`/code-audit`](skills/code-audit/): _TODO (Lucas): code-audit_ · [`/referee2`](skills/referee2/): _TODO (Lucas): referee2_ · [`/explain-diff`](skills/explain-diff/): _TODO (Lucas): explain-diff_ · [`/walkthrough`](skills/walkthrough/): _TODO (Lucas): walkthrough_
+- **Talks** — [`/deck`](skills/deck/): _TODO (Lucas): deck_
+- **Decisions** — [`/premortem`](skills/premortem/): _TODO (Lucas): premortem_
+
+**Hooks** (they run automatically; details in [`hooks/`](hooks/)):
+
+- `guard-rm` and `guard-script-delete` — _TODO (Lucas): what these two guard against_
+- `session-start-current-log` and `stop-log-reminder` — _TODO (Lucas): how these keep the working memory_
+- `warn-pdf-mainthread` — _TODO (Lucas): warn-pdf-mainthread_
 
 ## Claude's Automatic Documentation: Nothing is lost
 

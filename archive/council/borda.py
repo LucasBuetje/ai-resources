@@ -4,7 +4,7 @@
 Reads a JSON object on stdin:
 
     {
-      "members": ["Gemini 3.1 Pro", "GPT-5.5", ...],   # index 0..N-1 == response number 1..N
+      "members": ["Gemini 4 Argon", "GPT-5.5", ...],   # index 0..N-1 == response number 1..N
       "rankings": [                                          # one per reviewing member
         [3, 1, 4, 2, 5],   # best-first list of response NUMBERS (1-based)
         [1, 3, 5, 2, 4],

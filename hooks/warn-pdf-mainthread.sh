@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # warn-pdf-mainthread.sh — Claude Code PreToolUse hook (matcher: Read).
 #
-# Soft guard for the PDF Reading rule (Rule #21): reading a PDF with the Read tool in
+# Soft guard for the PDF Reading rule: reading a PDF with the Read tool in
 # the main thread renders page images that accumulate permanently and can make a
 # session unrecoverable. A hook can't tell a research paper (must go via /summarize-paper
 # or a subagent) from a syllabus/slides/notes (fine to read directly) — so this WARNS
@@ -25,7 +25,7 @@ esac
 jq -n '{
   hookSpecificOutput: {
     hookEventName: "PreToolUse",
-    additionalContext: "PDF Reading rule (Rule #21): reading a PDF in the main thread loads page images that persist for the whole session. If this is a RESEARCH PAPER, stop and use /summarize-paper (whole-paper summary) or a Sonnet/Opus subagent for a targeted read — never read a paper PDF in the main thread. If it is slides, a syllabus, lecture notes, or a report, reading directly here is fine; proceed."
+    additionalContext: "PDF Reading rule: reading a PDF in the main thread loads page images that persist for the whole session. If this is a RESEARCH PAPER, stop and use /summarize-paper (whole-paper summary) or a Sonnet/Opus subagent for a targeted read — never read a paper PDF in the main thread. If it is slides, a syllabus, lecture notes, or a report, reading directly here is fine; proceed."
   }
 }'
 exit 0
