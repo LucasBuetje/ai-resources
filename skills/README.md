@@ -9,7 +9,7 @@ Reusable, named recipes — expert instructions written once, invoked with one c
 
 - **Easiest — just ask the agent.** Point your agent at this repo and say *"install the `deck` and `referee2` skills"* — it copies the right folders into place for you.
 - **Manual (Claude Code):** copy a skill folder into `~/.claude/skills/` (e.g. `cp -R deck ~/.claude/skills/`). Invoke with `/<skill-name>`.
-- Some skills ship helper scripts (e.g. `council/`) or knowledge files (e.g. `deck/rhetoric.md`) alongside `SKILL.md` — copy the whole folder, not just `SKILL.md`.
+- Some skills ship helper scripts (e.g. `summarize-paper/`) or knowledge files (e.g. `deck/rhetoric.md`) alongside `SKILL.md` — copy the whole folder, not just `SKILL.md`.
 
 ## The skills
 
@@ -22,6 +22,5 @@ Reusable, named recipes — expert instructions written once, invoked with one c
 | [revise](revise/) | `/revise` | Respond to referee/reviewer comments interactively — one at a time, classified and drafted with your approval at each step. | original |
 | [deck](deck/) | `/deck` | Build or edit a Beamer deck following evidence-based rhetoric principles. Includes [rhetoric.md](deck/rhetoric.md), a knowledge base on what makes slides work. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
 | [tikz](tikz/) | `/tikz` | Visual-collision check for figures (TikZ source or rendered PNG/PDF) — label collisions, whitespace, edge-running. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
-| [council](council/) | `/council` | Multi-model "council": several model families answer, peer-rank each other anonymously, and a chair synthesizes. Adapt it to the models you have available. | [Andrej Karpathy](https://github.com/karpathy/llm-council) |
 | [premortem](premortem/) | `/premortem` | Decision premortem — imagine the plan already failed, work backward to the most critical risks before committing. | [olelehmann1337](https://github.com/olelehmann1337/openclaw-share) |
 | [skill-update-check](skill-update-check/) | `/skill-update-check` | Check your adapted skills against their upstream GitHub sources and flag substantial updates worth adopting. | original |
