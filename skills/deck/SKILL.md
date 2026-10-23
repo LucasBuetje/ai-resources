@@ -2,7 +2,7 @@
 name: deck
 origin: adapted from https://github.com/scunning1975/MixtapeTools
 targets: [claude, opencode, antigravity, vibe]
-description: Create or edit a Beamer slide deck. Use when the user asks to build, write, or edit a presentation or slide deck. For a PowerPoint (.pptx), use office-files; for HTML slides that help the user understand one paper, use summarize-paper.
+description: Create or edit a Beamer slide deck. Use when the user asks to build, write, or edit a presentation or slide deck. For HTML slides that help the user understand one paper, use summarize-paper.
 ---
 
 # Deck
