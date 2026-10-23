@@ -24,6 +24,11 @@ Reusable, named recipes — expert instructions written once, invoked with one c
 | [tikz](tikz/) | `/tikz` | Visual-collision check for figures (TikZ source or rendered PNG/PDF) — label collisions, whitespace, edge-running. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
 | [premortem](premortem/) | `/premortem` | Decision premortem — imagine the plan already failed, work backward to the most critical risks before committing. | [olelehmann1337](https://github.com/olelehmann1337/openclaw-share) |
 | [skill-update-check](skill-update-check/) | `/skill-update-check` | Check your adapted skills against their upstream GitHub sources and flag substantial updates worth adopting. | original |
+| [explain-diff](explain-diff/) | `/explain-diff` | Builds an interactive HTML slide deck that teaches how a code change works. | [Geoffrey Litt](https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524) |
+| [walkthrough](walkthrough/) | `/walkthrough` | You explain an AI-authored commit in your own words first; the agent teaches only the gaps (via explain-diff) and quizzes you. | original |
+| [show-me](show-me/) | `/show-me` | Explains the current topic as a picture — pipeline sketch, DAG, specification grid, small HTML page. | [humanlayer](https://github.com/humanlayer/skills) |
+| [bro](bro/) | `/bro` | Restates the last message in plain language, no jargon. | original |
+| [minto](minto/) | `/minto` | Restates the last message as a Minto pyramid: answer, reasons, evidence. | original |
 | [code-audit](code-audit/) | `/code-audit` | Correctness audit of one empirical script — data integrity, econometric specification, reproducibility; every serious finding is verified by running the code. Shares its checklist with referee2. | [aspi6246](https://github.com/aspi6246/Claude-Code-Skills-for-Academics) |
 | [number-check](number-check/) | `/number-check` | Traces every number quoted in prose (paper, deck, referee reply) back to the output that produced it and reports drift. | original |
 | [ctrl-f](ctrl-f/) | `/ctrl-f` | For each claim in a draft passage, names the Zotero source that backs it and a verbatim string to Ctrl-F for inside it. | original |

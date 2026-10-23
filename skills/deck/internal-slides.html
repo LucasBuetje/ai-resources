@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!--
+  internal-slides.html — template for slide-shaped internal HTML deliverables.
+
+  Ships with the `deck` skill. Copy this whole file into the deliverable and
+  replace the slides between the START/END markers. Do not link to it: every
+  deliverable is a standalone single file with the CSS and JS inlined, so it
+  keeps working when moved, mailed, or opened years later.
+
+  Slide types (class on <section class="slide ...">):
+    (none)     standard slide — assertion title in <h2>, one idea below
+    title      opening slide — Seeblau ground, black text
+    closing    final slide — dark ground, the one sentence, centred
+    section    divider between acts
+    detail     lookup appendix — scrolls inside the frame, tables allowed
+    quiz       optional self-check — answer key lives in the QUIZ array, never the
+               markup, so the DOM cannot leak which option is right
+
+  Navigation:  → ← Space PgDn PgUp Home End   ·   o = overview   ·   s = scroll
+               ?scroll and ?slide=N in the URL set the entry state.
+  Printing:    print goes through scroll mode automatically, one slide per page.
+
+  Tables with class="sortable" get click-to-sort headers (no library).
+
+  Reading aids (optional, for decks someone reads alone):
+    data-act="Results" on a slide     an argument map is drawn at its top: every act in
+                                      order of first appearance, this slide's act lit;
+                                      click an act to jump to its first slide
+    <p class="howto">How to read: …   one line above a figure saying what is plotted
+    <p class="so">…                   the slide's takeaway, pinned to the bottom
+    <p class="src">…                  small footer under it: where this sits in the source
+    class="tick" / class="own"        axis labels / numbers the author computed (for checkers)
+    <details class="more">            click-to-open depth; the slide scrolls while open;
+                                      closes on a click outside it or on Esc
+    <dfn data-def="…">term</dfn>      a term explained on hover or tap
+    <section class="slide detail" data-glossary>   filled automatically with every dfn
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Everything is inline, so the page needs no network. The browser enforces this whatever
+     ended up in the file, which matters when the content was built from a codebase or a
+     document the reader does not control. Drop it only if a deliverable genuinely needs a
+     remote resource — which the no-CDN rule says it does not. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>REPLACE — deliverable title</title>
+<style>
+:root{
+  --seeblau:#00A9E0; --seeblau65:#59C7EB; --seeblau35:#A6E1F4; --seeblau20:#CCEEF9;
+  --red:#DA121A; --gray:#6B7280; --ink:#111; --paper:#fff; --dark:#14181D;
+  --rule:#E3E7EB;
+  --sans:"Fira Sans","Helvetica Neue",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%;background:#F4F6F8;color:var(--ink);font-family:var(--sans)}
+body{overflow:hidden}
+
+/* ── stage: fixed 1280×720 canvas, scaled to fit the viewport ─────────────── */
+#stage{position:absolute;top:50%;left:50%;width:1280px;height:720px;
+       transform-origin:center center}
+.slide{position:absolute;inset:0;background:var(--paper);padding:56px 72px;
+       display:none;flex-direction:column;overflow:hidden;
+       box-shadow:0 2px 24px rgba(0,0,0,.13)}
+.slide.on{display:flex}
+
+h2{font-size:34px;line-height:1.22;margin:0 0 6px;font-weight:600;letter-spacing:-.01em}
+.slide > h2 + .rule{height:3px;background:var(--seeblau);width:100%;margin:0 0 26px;flex:none}
+.body{flex:1;min-height:0;font-size:21px;line-height:1.5}
+.slide.detail .body{overflow:auto;font-size:17px}
+
+p{margin:0 0 14px}
+ul,ol{margin:0 0 14px;padding-left:1.15em}
+li{margin:0 0 9px}
+li::marker{color:var(--seeblau)}
+strong{font-weight:600}
+.mk{color:var(--seeblau);font-weight:600}            /* the one phrase that must land */
+.warn{color:var(--red);font-weight:600}
+.dim{color:var(--gray)}
+code,kbd{font-family:var(--mono);font-size:.88em;background:#F2F5F7;padding:1px 5px;border-radius:3px}
+pre{font-family:var(--mono);font-size:15px;line-height:1.45;background:#F7F9FA;
+    border-left:3px solid var(--seeblau);padding:14px 18px;margin:0 0 14px;overflow:auto;
+    white-space:pre-wrap}   /* explicit — without it some contexts fold the block onto one line */
+pre code{background:none;padding:0;font-size:inherit}
+math[display=block]{margin:0 0 14px;font-size:1.15em}   /* equations: native MathML, never ASCII in <code> */
+figure{margin:0}
+img,svg{max-width:100%;height:auto;display:block}
+figcaption{font-size:15px;color:var(--gray);margin-top:8px}
+
+/* blocks — Seeblau bar, faint tint body (mirrors the Beamer palette) */
+.block{margin:0 0 16px;border-radius:3px;overflow:hidden}
+.block > .t{background:var(--seeblau);color:#000;font-weight:600;padding:7px 14px;font-size:18px}
+.block > .b{background:var(--seeblau20);padding:12px 14px}
+.block.alert > .t{background:var(--red);color:#fff}
+.block.alert > .b{background:#FDECEC}
+
+table{border-collapse:collapse;width:100%;font-size:.92em}
+th,td{text-align:left;padding:7px 11px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-weight:600;border-bottom:2px solid var(--ink);white-space:nowrap}
+tbody tr:hover{background:#F7FAFC}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+table.sortable th{cursor:pointer;user-select:none}
+table.sortable th::after{content:"";opacity:.35;margin-left:6px}
+table.sortable th[data-dir="asc"]::after{content:"▲"}
+table.sortable th[data-dir="desc"]::after{content:"▼"}
+
+details{border-top:1px solid var(--rule);padding-top:10px;margin-top:10px}
+summary{cursor:pointer;font-weight:600;color:var(--seeblau)}
+
+/* ── reading aids (optional) ──────────────────────────────────────────────── */
+.arc{position:absolute;top:20px;left:72px;display:flex;gap:8px;font-size:13px;
+     color:var(--gray);letter-spacing:.02em}
+.arc span+span::before{content:"›";margin-right:8px;color:#C4CBD2}
+.arc span{cursor:pointer}
+.arc span:hover{color:var(--ink)}
+.arc span.on{color:var(--seeblau);font-weight:600}
+.howto{font-size:16px;line-height:1.4;color:#374151;background:#F2F8FB;
+       border-left:3px solid var(--seeblau);padding:6px 12px;margin:0 0 14px}
+.so{margin:auto 0 0;padding-top:10px;border-top:1px solid var(--rule);font-size:19px}
+.so::before{content:"Takeaway  ";font-weight:600;color:var(--seeblau)}
+.src{margin:6px 0 0;font-size:13px;color:var(--gray)}
+.so + .src{margin-top:6px}
+.body > .src:first-child{margin-top:auto}
+details.more{font-size:17px;line-height:1.45}
+details.more summary{font-size:16px;color:var(--gray)}
+details.more summary::before{content:"+ "}
+details.more[open] summary::before{content:"− "}
+.slide .body:has(details[open]){overflow:auto}
+dfn[data-def]{font-style:normal;border-bottom:1.5px dotted var(--seeblau);cursor:help;
+              position:relative}
+dfn[data-def]:hover::after,dfn[data-def]:focus::after{content:attr(data-def);
+  position:absolute;left:0;top:1.5em;z-index:20;width:max-content;max-width:440px;
+  background:var(--dark);color:#fff;font-size:15px;line-height:1.4;font-weight:400;
+  padding:8px 11px;border-radius:4px;white-space:normal;letter-spacing:0}
+dfn[data-def]:focus{outline:none}
+body.scroll .arc{position:static;margin:0 0 10px}
+
+/* ── quiz (optional — delete with its slides and the QUIZ array if unused) ──
+   Every option is styled identically until it is clicked. Nothing in the markup,
+   the DOM order, or the attributes says which one is right: the key lives in the
+   QUIZ array below, so the page cannot leak the answer to a reader who inspects it. */
+ol.opts{list-style:none;padding:0;margin:0;counter-reset:o}
+ol.opts li{margin:0 0 9px}
+ol.opts button{display:block;width:100%;text-align:left;font:inherit;font-size:19px;
+  background:#F7F9FA;border:1px solid var(--rule);border-radius:4px;padding:11px 15px;
+  cursor:pointer;color:inherit}
+ol.opts button:hover:not(:disabled){border-color:var(--seeblau);background:#F0F8FC}
+ol.opts button:disabled{cursor:default}
+ol.opts button::before{counter-increment:o;content:counter(o,upper-alpha) ". ";
+  font-weight:600;color:var(--gray)}
+ol.opts button.right{background:var(--seeblau20);border-color:var(--seeblau)}
+ol.opts button.wrong{background:#FDECEC;border-color:var(--red)}
+.fb{margin-top:14px;font-size:18px;line-height:1.45;display:none}
+.fb.on{display:block}
+.fb .verdict{font-weight:600}
+.fb.ok .verdict{color:var(--seeblau)}
+.fb.no .verdict{color:var(--red)}
+
+/* title / section / closing */
+.slide.title{background:var(--seeblau);color:#000;justify-content:center}
+.slide.title h1{font-size:52px;line-height:1.12;margin:0 0 18px;font-weight:600;letter-spacing:-.02em}
+.slide.title .meta{font-size:20px;opacity:.75}
+.slide.section{justify-content:center;border-left:14px solid var(--seeblau)}
+.slide.section h2{font-size:44px}
+.slide.closing{background:var(--dark);color:#fff;justify-content:center;align-items:center;text-align:center}
+.slide.closing .one{font-size:40px;line-height:1.28;font-weight:600;max-width:60%}
+.slide.closing .rule{display:none}
+
+/* chrome */
+#bar{position:fixed;top:0;left:0;height:3px;background:var(--seeblau);width:0;z-index:9;transition:width .12s}
+#num{position:fixed;bottom:14px;right:18px;font-size:13px;color:var(--gray);
+     font-variant-numeric:tabular-nums;z-index:9}
+#help{position:fixed;bottom:14px;left:18px;font-size:12px;color:var(--gray);z-index:9}
+kbd{font-size:11px}
+
+/* ── overview ─────────────────────────────────────────────────────────────── */
+body.overview #stage{transform:none!important;position:static;width:auto;height:auto;
+                     display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+                     gap:18px;padding:24px}
+body.overview{overflow:auto;background:#E9EDF1}
+body.overview .slide{display:flex;position:relative;inset:auto;width:300px;height:169px;
+                     padding:14px 18px;font-size:8px;cursor:pointer;transform:none}
+body.overview .slide *{font-size:inherit!important;line-height:1.3!important}
+body.overview .slide h2,body.overview .slide h1{font-size:11px!important;margin:0 0 3px}
+body.overview .slide.cur{outline:3px solid var(--seeblau)}
+
+/* ── scroll mode (also the print layout) ──────────────────────────────────── */
+body.scroll{overflow:auto;background:#E9EDF1}
+body.scroll #stage{transform:none!important;position:static;width:auto;height:auto;
+                   max-width:1000px;margin:0 auto;padding:28px 20px}
+body.scroll .slide{display:flex;position:relative;inset:auto;width:auto;height:auto;
+                   min-height:0;margin:0 0 22px;padding:36px 44px}
+body.scroll .slide.detail .body{overflow:visible}
+body.scroll #num,body.scroll #bar{display:none}
+
+@media print{
+  body,body.scroll{overflow:visible;background:#fff}
+  #stage{transform:none!important;position:static;width:auto;height:auto;max-width:none;padding:0}
+  .slide{display:flex!important;position:relative;inset:auto;width:auto;height:auto;
+         min-height:0;box-shadow:none;padding:24px 0;break-inside:avoid;page-break-after:always}
+  .slide.detail .body{overflow:visible}
+  #num,#bar,#help{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="bar"></div>
+<div id="stage">
+
+<!-- ══ SLIDES START ═══════════════════════════════════════════════════════ -->
+
+<section class="slide title">
+  <h1>REPLACE — the finding, as a sentence</h1>
+  <div class="meta">Internal note · <span id="date">YYYY-MM-DD</span></div>
+</section>
+
+<section class="slide">
+  <h2>Assertion title: state the claim, not the topic</h2><div class="rule"></div>
+  <div class="body">
+    <p>One idea. The title carries it; the body supports it.</p>
+    <ul>
+      <li>Evidence, <span class="mk">the phrase that must land</span> marked once.</li>
+      <li>A second supporting point, if there genuinely is one.</li>
+    </ul>
+    <div class="block"><div class="t">What this means</div>
+      <div class="b">The implication, not a restatement.</div></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Picture before formalism</h2><div class="rule"></div>
+  <div class="body">
+    <figure>
+      <!-- inline SVG or a data: URI — never an external file -->
+      <figcaption>Direct labels, one message, no legend if it can be avoided.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="slide detail">
+  <h2>Detail: the numbers behind slide 2</h2><div class="rule"></div>
+  <div class="body">
+    <p class="dim">Lookup material lives on <code>detail</code> slides — it scrolls in place
+       and does not have to obey one-idea-per-slide.</p>
+    <table class="sortable">
+      <thead><tr><th>Spec</th><th class="num">Estimate</th><th class="num">SE</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>(1) baseline</td><td class="num">0.000</td><td class="num">0.000</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Quiz slide — optional. data-q indexes into the QUIZ array in the script.
+     Shuffle the options and spread the correct positions across questions; keep the
+     options level in length, grammar and hedging, or the right one is free to spot. -->
+<section class="slide quiz" data-q="0">
+  <h2>The question, stated as the title</h2><div class="rule"></div>
+  <div class="body">
+    <ol class="opts">
+      <li><button type="button">A distractor encoding a real misunderstanding</button></li>
+      <li><button type="button">The correct answer, no longer or better hedged than the rest</button></li>
+      <li><button type="button">A second plausible wrong mental model</button></li>
+    </ol>
+    <div class="fb"><span class="verdict"></span> <span class="why"></span></div>
+  </div>
+</section>
+
+<section class="slide closing">
+  <div class="one">REPLACE — the one sentence to remember.</div>
+</section>
+
+<!-- ══ SLIDES END ═════════════════════════════════════════════════════════ -->
+
+</div>
+
+<div id="num"></div>
+<div id="help"><kbd>←</kbd><kbd>→</kbd> move · <kbd>o</kbd> overview · <kbd>s</kbd> scroll</div>
+
+<script>
+// Answer key, one entry per .quiz slide in data-q order. `a` is the 0-based index of the
+// correct option; `why` explains each option — for a distractor, the misconception it
+// encodes. Kept here, out of the markup, so the DOM never reveals the answer.
+var QUIZ = [
+  {a: 1, why: [
+    "Why someone would believe this, and what it gets wrong.",
+    "Why this is right — the behaviour, not a restatement of the option.",
+    "The second misconception, named."
+  ]}
+];
+
+(function(){
+  var stage = document.getElementById('stage');
+  var slides = [].slice.call(stage.querySelectorAll('.slide'));
+  var i = 0;
+
+  // reading aids: argument map from data-act, tappable terms, auto glossary
+  var acts = [];
+  slides.forEach(function(s){
+    var a = s.dataset.act;
+    if (a && acts.indexOf(a) < 0) acts.push(a);
+  });
+  slides.forEach(function(s){
+    if (!s.dataset.act || /\b(title|closing)\b/.test(s.className)) return;
+    var nav = document.createElement('nav');
+    nav.className = 'arc';
+    acts.forEach(function(a){
+      var sp = document.createElement('span');
+      sp.textContent = a;
+      if (a === s.dataset.act) sp.className = 'on';
+      sp.addEventListener('click', function(){
+        show(slides.findIndex(function(o){ return o.dataset.act === a; }));
+      });
+      nav.appendChild(sp);
+    });
+    s.insertBefore(nav, s.firstChild);
+  });
+  var terms = {};
+  [].forEach.call(stage.querySelectorAll('dfn[data-def]'), function(d){
+    d.tabIndex = 0;
+    var t = d.textContent.trim();
+    if (!terms[t.toLowerCase()]) terms[t.toLowerCase()] = [t, d.dataset.def];
+  });
+  var gl = stage.querySelector('.slide[data-glossary] .body');
+  if (gl) {
+    var tb = document.createElement('table');
+    tb.innerHTML = '<thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody></tbody>';
+    Object.keys(terms).sort().forEach(function(k){
+      var tr = document.createElement('tr'), a = document.createElement('td'),
+          b = document.createElement('td');
+      a.textContent = terms[k][0]; b.textContent = terms[k][1];
+      tr.appendChild(a); tr.appendChild(b); tb.tBodies[0].appendChild(tr);
+    });
+    gl.appendChild(tb);
+  }
+
+  function fit(){
+    if (document.body.className) { stage.style.transform = ''; return; }
+    var s = Math.min(window.innerWidth / 1280, window.innerHeight / 720) * 0.94;
+    stage.style.transform = 'translate(-50%,-50%) scale(' + s + ')';
+  }
+  function show(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function(el, k){
+      el.classList.toggle('on', k === i);
+      el.classList.toggle('cur', k === i);
+    });
+    document.getElementById('num').textContent = (i + 1) + ' / ' + slides.length;
+    document.getElementById('bar').style.width =
+      (slides.length < 2 ? 100 : i / (slides.length - 1) * 100) + '%';
+    // file:// origins reject replaceState in some browsers — never let that break nav.
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+  function mode(m){                       // '' | 'overview' | 'scroll'
+    document.body.className = m;
+    fit();
+    if (m) slides[i].scrollIntoView({block: 'center'});
+  }
+
+  document.addEventListener('keydown', function(e){
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    var k = e.key, m = document.body.className;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ') { show(i + 1); if (m) slides[i].scrollIntoView({block:'center'}); e.preventDefault(); }
+    else if (k === 'ArrowLeft' || k === 'PageUp')            { show(i - 1); if (m) slides[i].scrollIntoView({block:'center'}); e.preventDefault(); }
+    else if (k === 'Home') show(0);
+    else if (k === 'End')  show(slides.length - 1);
+    else if (k === 'o')    mode(m === 'overview' ? '' : 'overview');
+    else if (k === 's')    mode(m === 'scroll'   ? '' : 'scroll');
+    else if (k === 'Escape') { if (!closeMore(null)) mode(''); }
+  });
+  // an open "More" box closes on a click outside it, or on Esc (before Esc leaves a mode)
+  function closeMore(keep){
+    var open = [].slice.call(stage.querySelectorAll('details.more[open]'));
+    open.forEach(function(d){ if (!d.contains(keep)) d.open = false; });
+    return open.length > 0;
+  }
+  document.addEventListener('click', function(e){ closeMore(e.target); });
+  stage.addEventListener('click', function(e){
+    if (document.body.className !== 'overview') return;
+    var el = e.target.closest('.slide');
+    if (el) { show(slides.indexOf(el)); mode(''); }
+  });
+  window.addEventListener('resize', fit);
+  window.addEventListener('beforeprint', function(){ slides.forEach(function(el){ el.classList.add('on'); }); });
+  window.addEventListener('afterprint', function(){ show(i); });
+
+  // quiz — wired with addEventListener, never an inline onclick, so the script block
+  // stays hashable under a strict script-src.
+  [].forEach.call(document.querySelectorAll('.slide.quiz'), function(sl){
+    var key = QUIZ[+sl.dataset.q];
+    if (!key) return;
+    var btns = [].slice.call(sl.querySelectorAll('ol.opts button'));
+    var fb = sl.querySelector('.fb');
+    btns.forEach(function(b, n){
+      b.addEventListener('click', function(){
+        var ok = n === key.a;
+        btns.forEach(function(o, m){
+          o.disabled = true;
+          if (m === key.a) o.classList.add('right');
+        });
+        if (!ok) b.classList.add('wrong');
+        fb.className = 'fb on ' + (ok ? 'ok' : 'no');
+        fb.querySelector('.verdict').textContent = ok ? 'Correct.' : 'Not quite.';
+        fb.querySelector('.why').textContent =
+          (key.why && key.why[n]) ? key.why[n] : '';
+      });
+    });
+  });
+
+  // click-to-sort tables
+  [].forEach.call(document.querySelectorAll('table.sortable'), function(t){
+    [].forEach.call(t.tHead.rows[0].cells, function(th, c){
+      th.addEventListener('click', function(){
+        var dir = th.dataset.dir === 'asc' ? 'desc' : 'asc';
+        [].forEach.call(t.tHead.rows[0].cells, function(o){ delete o.dataset.dir; });
+        th.dataset.dir = dir;
+        var rows = [].slice.call(t.tBodies[0].rows);
+        rows.sort(function(a, b){
+          var x = a.cells[c].textContent.trim(), y = b.cells[c].textContent.trim();
+          var nx = parseFloat(x.replace(/[^\d.eE+-]/g, '')), ny = parseFloat(y.replace(/[^\d.eE+-]/g, ''));
+          var d = (!isNaN(nx) && !isNaN(ny)) ? nx - ny : x.localeCompare(y, undefined, {numeric: true});
+          return dir === 'asc' ? d : -d;
+        });
+        rows.forEach(function(r){ t.tBodies[0].appendChild(r); });
+      });
+    });
+  });
+
+  var q = new URLSearchParams(location.search);
+  var start = parseInt(q.get('slide') || location.hash.slice(1), 10);
+  show(isNaN(start) ? 0 : start - 1);
+  if (q.has('scroll')) mode('scroll');
+  fit();
+})();
+</script>
+</body>
+</html>
