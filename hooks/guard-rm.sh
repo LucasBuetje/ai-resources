@@ -36,7 +36,7 @@ printf '%s' "$cmd" | grep -Eq "$disposable" && exit 0
 
 # Otherwise: block.
 cat >&2 <<EOF
-Blocked by File Preservation rule (Rule #1): this command uses \`rm\`.
+Blocked by File Preservation rule: this command uses \`rm\`.
 Never delete project files — move them to an archive/ subfolder instead:
 
     mv <file> archive/
