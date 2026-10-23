@@ -2,7 +2,7 @@
 
 Copy the block below into `pdf_reads/<basename>/<basename>_factcheck_prompt.txt`, fill the
 four paths and the PRIORITY CLAIMS list (`none` when there is no question to rank by), and pass the file's contents as the `Agent` prompt (`model: haiku`). Written to
-the `haiku-prompting` skill's rules: inputs from disk, JSON out via `json.dumps`, a one-line
+the `small-model-prompting` skill's rules: inputs from disk, JSON out via `json.dumps`, a one-line
 reply, an honest attest block, and the keep-working paragraph for a long prompt.
 
 ```

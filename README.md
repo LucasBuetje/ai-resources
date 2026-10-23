@@ -70,7 +70,7 @@ Here's a list of the tools I use to make my agent better.
 
 | | Feature | What it does | Details |
 |:--:|---|---|:--:|
-| ⚡ | **Skills** | Reusable one-command recipes — `/summarize-paper`, `/referee2`, … (17 of them). | [`skills/`](skills/) |
+| ⚡ | **Skills** | Reusable one-command recipes — `/summarize-paper`, `/referee2`, … (19 of them). | [`skills/`](skills/) |
 | 👥 | **Subagents** | A team working in parallel, each on a subtask, then reporting back. | [`subagents/`](subagents/) |
 | 🔌 | **MCP** | Plug the agent into external tools (e.g. a Zotero library). | [`mcp/`](mcp/) |
 | 🪝 | **Hooks** | Your conventions enforced by code, not trust. | [`hooks/`](hooks/) |
