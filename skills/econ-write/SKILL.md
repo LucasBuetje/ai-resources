@@ -1,7 +1,6 @@
 ---
 name: econ-write
 origin: adapted from https://github.com/hanlulong/econ-writing-skill
-targets: [claude, opencode, antigravity, vibe]
 description: "Economics writing assistant. Use whenever the user writes, edits, reviews or structures an economics paper, thesis, job market paper, abstract, section, literature review or referee response. For a point-by-point referee reply, suggest /revise. Not for pure code, data or config tasks."
 argument-hint: "<task> e.g. 'write introduction for my DiD paper on minimum wage' or 'rewrite this paragraph for clarity' or 'review my results section' or 'draft conclusion for my RCT paper' or 'help me structure the model section'"
 user-invocable: true

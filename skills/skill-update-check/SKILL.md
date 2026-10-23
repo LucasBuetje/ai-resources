@@ -1,7 +1,6 @@
 ---
 name: skill-update-check
 origin: self
-targets: [claude]
 description: Check adapted skills against their upstream GitHub sources for substantial updates. Reads origin fields, fetches upstream versions, compares, flags changes worth adopting. Use when you want to sync adapted skills with their sources.
 user-invocable: true
 allowed-tools: Read, Write, Edit, Bash(grep*), Bash(find*), Bash(ls*), Agent, WebFetch, AskUserQuestion

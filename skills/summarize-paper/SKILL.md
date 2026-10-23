@@ -1,7 +1,6 @@
 ---
 name: summarize-paper
 origin: adapted from https://github.com/scunning1975/MixtapeTools
-targets: [claude]
 description: "Summarize an academic paper (journal article, working paper, preprint), located via Zotero if needed. The read goes to a Claude Sonnet subagent by default, or to an Opus subagent on request (\"with Opus\"), so no PDF page image reaches the main thread; a Haiku subagent then fact-checks the extract. Auto-invoke for a whole-paper summary, and for a reading deck (HTML slides to understand a paper)."
 allowed-tools: Agent, SendMessage, Bash(cd*), Bash(python*), Bash(pip*), Bash(mkdir*), Bash(ls*), Bash(cat*), Read, Write, Edit, mcp__zotero__zotero_search_items, mcp__zotero__zotero_search_by_citation_key, mcp__zotero__zotero_get_item_children, mcp__zotero__zotero_get_attachment_path
 argument-hint: "[pdf-path | paper title | DOI | citation key] [— focus: what to extract] [— reader: opus] [— no-check] [— deck]"

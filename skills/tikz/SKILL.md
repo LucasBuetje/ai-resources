@@ -1,7 +1,6 @@
 ---
 name: tikz
 origin: adapted from https://github.com/scunning1975/MixtapeTools
-targets: [claude, opencode, antigravity, vibe]
 description: "Visual-collision check for figures — TikZ in .tex, or rendered .png/.jpg/.pdf from R/Python: label collisions, whitespace, labels off the edge. Use after generating a figure you cannot eyeball yourself."
 allowed-tools: Bash(grep*), Bash(ls*), Bash(file*), Bash(wc*), Read
 argument-hint: [path/to/file.tex | path/to/figure.png | path/to/figure.pdf]

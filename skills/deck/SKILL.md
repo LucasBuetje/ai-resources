@@ -1,7 +1,6 @@
 ---
 name: deck
 origin: adapted from https://github.com/scunning1975/MixtapeTools
-targets: [claude, opencode, antigravity, vibe]
 description: Create or edit a Beamer slide deck. Use when the user asks to build, write, or edit a presentation or slide deck. For HTML slides that help the user understand one paper, use summarize-paper.
 ---
 
@@ -231,7 +230,6 @@ Once the deck compiles clean, get a second opinion on it against the Rhetoric of
 
 - **In Claude Code:** dispatch a subagent (Agent tool) with this task:
   > Audit the Beamer deck at `<filename>.tex` and its compiled `<filename>.pdf` against `rhetoric.md` (co-located with the deck skill). Check: (1) titles are assertions, not labels — read them in sequence, do they tell a coherent story; (2) one idea per slide — flag any slide with two or more competing ideas; (3) no wall of sentences — flag any slide with more than two prose sentences stacked vertically; (4) MB/MC equivalence — rate each slide's density 1–5, flag outliers; (5) narrative arc — is there a clear setup/development/resolution, does the opening hook and does the closing land; (6) intuition-first ordering — flag any section where an equation or formal definition precedes the figure or example motivating it; (7) Devil's Advocate — if the audience is academic or external, is the strongest objection addressed somewhere. Return a structured report with numbered concerns and suggested rewrites. Do NOT modify the deck — only diagnose.
-- **In OpenCode / Antigravity (no subagent capability):** run through the same seven checks yourself, in the main thread, treating it as a distinct pass rather than folding it into Step 5 — the point is a second, dedicated look at the compiled output, not a mental note taken while writing.
 
 Apply every concern raised, then go back to Step 6 and recompile.
 
@@ -243,7 +241,6 @@ A second, narrower pass — figures, tables, and TikZ diagrams only. This is the
 
 - **In Claude Code:** dispatch a subagent (Agent tool) with this task:
   > Audit ONLY the figures, tables, and TikZ diagrams in the compiled `<filename>.pdf`. Do not evaluate rhetoric, narrative, or content. Check: (1) numerical accuracy — do the numbers shown match the underlying script's output, any mismatch is critical; (2) label positioning — do labels sit where the source code intends, nothing clipped or drifted; (3) axis and tick coherence — sensible ranges, readable tick labels; (4) color consistency — figure colors match the deck palette and are used consistently for the same variable across figures; (5) font sizing — readable from the back of the room; (6) table formatting — booktabs rules only, consistent decimal alignment; (7) captions — states what to conclude, not just what the figure is. Return a structured report tied to specific files/coordinates. Do NOT modify any files — only diagnose.
-- **In OpenCode / Antigravity (no subagent capability):** run through the same seven checks yourself against the compiled PDF, as a distinct pass after the rhetoric audit — not merged into it, since the two catch different failure modes.
 
 Apply every fix, then go back to Step 6 (recompile) and re-run `/tikz` — this is typically where the last round of silent errors gets caught.
 

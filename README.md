@@ -10,7 +10,7 @@
 > [!NOTE]
 > - **Treat this as a menu, not a template.** Don't clone it and expect it to "work" — it's here to inspire and be picked from. Take what fits how you work, adapt it, ignore the rest.
 > - **Agentic AI is the focus:** Plain chat and other tools have been demoted to a footnote (just as they have been in my workflow) → [`non-agentic/`](non-agentic/).
-> - **Written from a Claude Code perspective** — that's what I use, so the paths and commands here are Claude's. But Codex, Antigravity, OpenCode and the other agents work the same way; almost everything here applies to them too. When in doubt, just ask your agent for its equivalent.
+> - **Written from a Claude Code perspective** — that's what I use, so the paths and commands here are Claude's.
 
 _**Provided as-is; use at your own risk.**_ · Reach out: lucas.buetje.economist@outlook.com
 
@@ -25,13 +25,11 @@ _**Provided as-is; use at your own risk.**_ · Reach out: lucas.buetje.economist
 
 ## Get an agent
 
-Don't have one installed yet? Most likely, the AI provider you are already using has one. Here's a selection:
+Don't have one installed yet? This repo is built around Claude Code:
 
 | Provider | Agent | Install |
 |---|---|---|
 | Anthropic | Claude Code | [claude.com/product/claude-code](https://claude.com/product/claude-code) |
-| OpenAI | Codex | [openai.com/codex](https://openai.com/codex/) |
-| Google | Antigravity | [antigravity.google](https://antigravity.google) |
 
 ## Risks and safeguards
 

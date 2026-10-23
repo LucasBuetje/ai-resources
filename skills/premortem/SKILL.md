@@ -1,7 +1,6 @@
 ---
 name: premortem
 origin: adapted from https://github.com/olelehmann1337/openclaw-share
-targets: [claude, opencode, antigravity, vibe]
 description: "Imagine a plan has already failed, then work backward to find out why. Use before committing to a high-stakes, still-reversible decision (job market strategy, chapter direction, research design, grant framing)."
 argument-hint: '[description of the decision or plan being premortemed]'
 disable-model-invocation: true
@@ -67,7 +66,6 @@ Organize by failure type:
 For the **4–5 most significant failure reasons**, investigate each one deeply and independently.
 
 - **In Claude Code:** spawn one subagent per scenario, in parallel. Use **Sonnet** for each (the Subagent Model Default for delegated execution; never Haiku — likelihood assessment, causal analysis, and mitigation planning are multi-step reasoning).
-- **In OpenCode / Antigravity (no subagent capability):** work through the scenarios sequentially in the main thread, one at a time, using the same per-scenario structure below. Do not pretend to spawn agents and do not skip scenarios.
 
 Each investigation receives:
 - The plan description

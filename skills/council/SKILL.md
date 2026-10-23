@@ -1,7 +1,6 @@
 ---
 name: council
 description: Convene a multi-model "council" to answer a hard question — four different model families answer in parallel, anonymously peer-rank each other, and a Claude Opus chairman synthesizes the final answer. Adaptation of karpathy/llm-council for local CLIs (agy, codex, vibe) plus Claude subagents. Can judge attached material: point it at project files (R scripts, .tex/.md drafts, data dictionaries) or paste content inline, and every member sees it (PDFs are extracted to text by a subagent first). Use when the user wants cross-model consensus, a second/third opinion, or maximum-confidence judgment on open-ended, high-stakes, or contested questions — invoke on "/council", "ask the council", "convene the council", "council on …". Not for quick factual lookups (the fan-out costs ~9 model calls).
-targets: [claude]
 origin: adapted from https://github.com/karpathy/llm-council
 ---
 

@@ -9,7 +9,6 @@ Reusable, named recipes — expert instructions written once, invoked with one c
 
 - **Easiest — just ask the agent.** Point your agent at this repo and say *"install the `deck` and `referee2` skills"* — it copies the right folders into place for you.
 - **Manual (Claude Code):** copy a skill folder into `~/.claude/skills/` (e.g. `cp -R deck ~/.claude/skills/`). Invoke with `/<skill-name>`.
-- **Manual (OpenCode):** copy into `~/.config/opencode/commands/`.
 - Some skills ship helper scripts (e.g. `council/`) or knowledge files (e.g. `deck/rhetoric.md`) alongside `SKILL.md` — copy the whole folder, not just `SKILL.md`.
 
 ## The skills

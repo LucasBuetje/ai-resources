@@ -1,7 +1,6 @@
 ---
 name: referee2
 origin: adapted from https://github.com/scunning1975/MixtapeTools
-targets: [claude, opencode, antigravity, vibe]
 description: "Systematic audit and cross-language replication of an empirical research project; files a formal referee report with a Beamer deck."
 trigger: When the user asks to audit, review, or replicate an empirical research project, or invokes "referee 2"
 disable-model-invocation: true
