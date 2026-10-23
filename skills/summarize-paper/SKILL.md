@@ -2,7 +2,7 @@
 name: summarize-paper
 origin: adapted from https://github.com/scunning1975/MixtapeTools
 targets: [claude]
-description: Locate (via Zotero) and deeply read/summarize an academic research paper — journal article, working paper, preprint — with ONE Claude Opus subagent that reads the WHOLE PDF in a single pass (no chunking). The subagent gets the rendered pages (images) plus the extracted text layer as a grounding anchor and returns a structured extract; page images stay inside the subagent and are discarded on return, so no image tokens reach the main thread. Auto-invoke for a whole-paper summary of a research paper; other paper reads (a targeted section or table) go through a Claude subagent per the PDF Reading rule.
+description: "Summarize an academic paper (journal article, working paper, preprint), located via Zotero if needed. In Claude Code the read goes to a Claude Sonnet subagent by default, to an Opus subagent on request (\"with Opus\"), or to the Antigravity CLI (`agy`) on request — Gemini Flash (\"with Gemini\") or Gemini 4 Argon medium (\"with Argon\"), so no PDF page image reaches the main thread. Auto-invoke for a whole-paper summary of a research paper; other paper reads (a targeted section or table) go through a Claude subagent per the PDF Reading rule."
 allowed-tools: Bash(python*), Bash(pip*), Bash(mkdir*), Bash(ls*), Read, Write, Edit, Agent, mcp__zotero__zotero_search_items, mcp__zotero__zotero_search_by_citation_key, mcp__zotero__zotero_get_item_children, mcp__zotero__zotero_get_attachment_path
 argument-hint: "[pdf-path | paper title | DOI | citation key] [— focus: what to extract]"
 ---
