@@ -2,7 +2,7 @@
 
 Shared rubric for auditing empirical research code. This is the **single source of
 truth** for the three correctness domains below; it is consumed by the
-`referee2` skill (whole-project audit). It holds only the *rubric* — no severity formats, output templates, or
+`referee2` skill (whole-project audit) and the `code-audit` skill (single-file diagnostic). It holds only the *rubric* — no severity formats, output templates, or
 skill-specific procedure. Each consuming skill wraps these checks in its own framing.
 
 ---
