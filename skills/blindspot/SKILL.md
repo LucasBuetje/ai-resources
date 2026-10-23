@@ -5,6 +5,7 @@ targets: [claude, opencode, antigravity, vibe]
 description: "Peripheral-vision audit of empirical output — problems hiding in plain sight and opportunities being overlooked. Use when results exist and interpretation is about to happen."
 allowed-tools: Read, Write, Bash(ls*), Grep
 argument-hint: '[path-to-figure, table, or results file] [brief description of what you think the main finding is]'
+disable-model-invocation: true
 ---
 
 # Blindspot: Make the Stone Stony Again

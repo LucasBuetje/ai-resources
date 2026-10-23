@@ -4,6 +4,7 @@ origin: adapted from https://github.com/olelehmann1337/openclaw-share
 targets: [claude, opencode, antigravity, vibe]
 description: "Imagine a plan has already failed, then work backward to find out why. Use before committing to a high-stakes, still-reversible decision (job market strategy, chapter direction, research design, grant framing)."
 argument-hint: '[description of the decision or plan being premortemed]'
+disable-model-invocation: true
 ---
 
 # Premortem

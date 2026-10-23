@@ -5,6 +5,7 @@ targets: [claude, opencode, antigravity, vibe]
 description: Structure a response to referee or reviewer comments interactively, one comment at a time. Classifies each point, drafts responses, and waits for user approval before proceeding. Use when responding to referee2 reports, journal referee reports, or co-author feedback. Do not auto-invoke (e.g. at the end of a referee2 run) — always wait for the user to explicitly ask.
 argument-hint: "[referee-report file path] [paper/project path (optional)]"
 user-invocable: true
+disable-model-invocation: true
 ---
 
 # Revise
