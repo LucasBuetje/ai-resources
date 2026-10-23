@@ -11,8 +11,8 @@ Small scripts the agent tool runs automatically at set moments — *before* a co
 - **`guard-rm.sh`** — *PreToolUse (Bash).* Blocks `rm` on project files and tells the agent to `mv <file> archive/` instead. Allows genuinely disposable targets (temp dirs, caches, build output, `git rm`). A footgun-catcher, not a security boundary.
 - **`warn-pdf-mainthread.sh`** — *PreToolUse (Read).* Non-blocking warning when reading a `.pdf`: page images loaded in the main thread accumulate and can make a session unrecoverable. Suggests a subagent / `/summarize-paper` for research papers; lets slides and notes through.
 - **`session-start-current-log.sh`** — *SessionStart.* Reads `current.md` from the project root (falling back to the older `log/current.md`) and injects it into context, so the agent always opens with the working memory from last session. (Pairs with the memory-log pattern — see [`../memory-log/`](../memory-log/).)
-- **`guard-script-delete.sh`** — *PreToolUse (Edit/Write and Bash).* Blocks file-deletion calls in any language (find's delete flag, Python's tree and file removal, R's unlink, …) in new script text and in inline one-liners. Written after a test script's clean-up line ran with an empty variable and wiped every folder the session could write to — `guard-rm.sh` only ever saw `bash test.sh`.
-- **`stop-log-reminder.sh`** — *Stop.* If project files changed since `current.md` was last updated, asks the agent to log what it did (and only what it did). Re-arms after each log update; never nags on a turn with no new edits.
+- **`guard-script-delete.sh`** — *PreToolUse (Edit/Write and Bash).* _TODO (Lucas): what it blocks and the story behind it_
+- **`stop-log-reminder.sh`** — *Stop.* _TODO (Lucas): what it does_
 
 ## Wiring (`~/.claude/settings.json`)
 

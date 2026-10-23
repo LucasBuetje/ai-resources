@@ -87,17 +87,17 @@ Here's a list of the tools I use to make my agent better.
 
 **Skills** (each runs with `/<name>`; details in [`skills/`](skills/)):
 
-- **Reading** — [`/summarize-paper`](skills/summarize-paper/): a whole paper read in one pass, then fact-checked.
-- **Writing** — [`/econ-write`](skills/econ-write/): writing guidance for economics papers · [`/number-check`](skills/number-check/): every number in the prose traced back to its source.
-- **Code** — [`/code-audit`](skills/code-audit/): is this script right? · [`/referee2`](skills/referee2/): a full project audit with replication · [`/explain-diff`](skills/explain-diff/): a code change explained as slides · [`/walkthrough`](skills/walkthrough/): you explain an AI's commit first, then learn the gaps.
-- **Talks** — [`/deck`](skills/deck/): Beamer decks built on rhetoric principles.
-- **Decisions** — [`/premortem`](skills/premortem/): find how a plan fails before you commit to it.
+- **Reading** — [`/summarize-paper`](skills/summarize-paper/): _TODO (Lucas): what summarize-paper does and why to use it_
+- **Writing** — [`/econ-write`](skills/econ-write/): _TODO (Lucas): econ-write_ · [`/number-check`](skills/number-check/): _TODO (Lucas): number-check_
+- **Code** — [`/code-audit`](skills/code-audit/): _TODO (Lucas): code-audit_ · [`/referee2`](skills/referee2/): _TODO (Lucas): referee2_ · [`/explain-diff`](skills/explain-diff/): _TODO (Lucas): explain-diff_ · [`/walkthrough`](skills/walkthrough/): _TODO (Lucas): walkthrough_
+- **Talks** — [`/deck`](skills/deck/): _TODO (Lucas): deck_
+- **Decisions** — [`/premortem`](skills/premortem/): _TODO (Lucas): premortem_
 
 **Hooks** (they run automatically; details in [`hooks/`](hooks/)):
 
-- `guard-rm` and `guard-script-delete` — the agent moves files to `archive/` instead of deleting them, in commands and in scripts it writes.
-- `session-start-current-log` and `stop-log-reminder` — working memory is loaded at the start of each session and kept up to date at the end of each turn.
-- `warn-pdf-mainthread` — a warning before a PDF is read in a way that bloats the session.
+- `guard-rm` and `guard-script-delete` — _TODO (Lucas): what these two guard against_
+- `session-start-current-log` and `stop-log-reminder` — _TODO (Lucas): how these keep the working memory_
+- `warn-pdf-mainthread` — _TODO (Lucas): warn-pdf-mainthread_
 
 ## Claude's Automatic Documentation: Nothing is lost
 

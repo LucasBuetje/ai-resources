@@ -19,23 +19,23 @@ Nine skills, grouped by the task they help with.
 
 | Skill | What it does | Source |
 |---|---|---|
-| [summarize-paper](summarize-paper/) | Deep whole-paper read in one pass (Sonnet subagent by default, Opus on request), then a Haiku fact-check gated by scripts; structured extract of data, identification strategy, results. Zotero-aware. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
+| [summarize-paper](summarize-paper/) | Deep whole-paper read (one Sonnet subagent by default, Opus on request; no chunking); structured extract of data, identification strategy, results. Zotero-aware. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
 
 ### Writing
 
 | Skill | What it does | Source |
 |---|---|---|
 | [econ-write](econ-write/) | Economics-paper writing assistant synthesizing 50+ top writing guides (Cochrane, McCloskey, Shapiro, …). All sections, all paper types. | [hanlulong](https://github.com/hanlulong/econ-writing-skill) |
-| [number-check](number-check/) | Traces every number quoted in prose (paper, deck, referee reply) back to the output that produced it and reports drift. | original |
+| [number-check](number-check/) | _TODO (Lucas): what number-check does_ | original |
 
 ### Code
 
 | Skill | What it does | Source |
 |---|---|---|
-| [code-audit](code-audit/) | Correctness audit of one empirical script — data integrity, econometric specification, reproducibility; every serious finding is verified by running the code. | [aspi6246](https://github.com/aspi6246/Claude-Code-Skills-for-Academics) |
+| [code-audit](code-audit/) | _TODO (Lucas): what code-audit does_ | [aspi6246](https://github.com/aspi6246/Claude-Code-Skills-for-Academics) |
 | [referee2](referee2/) | Full empirical-research audit + cross-language R↔Python replication. Five audits, a formal referee report, and a Beamer deck. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
-| [explain-diff](explain-diff/) | Builds an interactive HTML slide deck that teaches how a code change works. | [Geoffrey Litt](https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524) |
-| [walkthrough](walkthrough/) | You explain an AI-authored commit in your own words first; the agent teaches only the gaps (via explain-diff) and quizzes you. | original |
+| [explain-diff](explain-diff/) | _TODO (Lucas): what explain-diff does_ | [Geoffrey Litt](https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524) |
+| [walkthrough](walkthrough/) | _TODO (Lucas): what walkthrough does_ | original |
 
 ### Talks
 
