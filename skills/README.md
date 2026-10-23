@@ -16,7 +16,7 @@ Reusable, named recipes — expert instructions written once, invoked with one c
 
 | Skill | Command | What it does | Source |
 |---|---|---|---|
-| [summarize-paper](summarize-paper/) | `/summarize-paper` | Deep whole-paper read in one pass (Sonnet subagent by default; Opus, Gemini Flash or Gemini 4 Argon on request); structured extract of data, identification strategy, results. Zotero-aware. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
+| [summarize-paper](summarize-paper/) | `/summarize-paper` | Deep whole-paper read in one pass (Sonnet subagent by default, Opus on request), then a Haiku fact-check gated by scripts; structured extract of data, identification strategy, results. Zotero-aware. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
 | [referee2](referee2/) | `/referee2` | Full empirical-research audit + cross-language R↔Python replication. Five audits, a formal referee report, and a Beamer deck. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
 | [blindspot](blindspot/) | `/blindspot` | Peripheral-vision audit of empirical output — surfaces problems you can't see in your own results, and opportunities you're missing. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
 | [econ-write](econ-write/) | `/econ-write` | Economics-paper writing assistant synthesizing 50+ top writing guides (Cochrane, McCloskey, Shapiro, …). All sections, all paper types. | [hanlulong](https://github.com/hanlulong/econ-writing-skill) |
