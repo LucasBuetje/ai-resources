@@ -13,24 +13,38 @@ Reusable, named recipes — expert instructions written once, invoked with one c
 
 ## The skills
 
-| Skill | Command | What it does | Source |
-|---|---|---|---|
-| [summarize-paper](summarize-paper/) | `/summarize-paper` | Deep whole-paper read in one pass (Sonnet subagent by default, Opus on request), then a Haiku fact-check gated by scripts; structured extract of data, identification strategy, results. Zotero-aware. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
-| [referee2](referee2/) | `/referee2` | Full empirical-research audit + cross-language R↔Python replication. Five audits, a formal referee report, and a Beamer deck. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
-| [blindspot](blindspot/) | `/blindspot` | Peripheral-vision audit of empirical output — surfaces problems you can't see in your own results, and opportunities you're missing. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
-| [econ-write](econ-write/) | `/econ-write` | Economics-paper writing assistant synthesizing 50+ top writing guides (Cochrane, McCloskey, Shapiro, …). All sections, all paper types. | [hanlulong](https://github.com/hanlulong/econ-writing-skill) |
-| [revise](revise/) | `/revise` | Respond to referee/reviewer comments interactively — one at a time, classified and drafted with your approval at each step. | original |
-| [deck](deck/) | `/deck` | Build or edit a Beamer deck following evidence-based rhetoric principles. Includes [rhetoric.md](deck/rhetoric.md), a knowledge base on what makes slides work. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
-| [tikz](tikz/) | `/tikz` | Visual-collision check for figures (TikZ source or rendered PNG/PDF) — label collisions, whitespace, edge-running. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
-| [premortem](premortem/) | `/premortem` | Decision premortem — imagine the plan already failed, work backward to the most critical risks before committing. | [olelehmann1337](https://github.com/olelehmann1337/openclaw-share) |
-| [skill-update-check](skill-update-check/) | `/skill-update-check` | Check your adapted skills against their upstream GitHub sources and flag substantial updates worth adopting. | original |
-| [writing-great-skills](writing-great-skills/) | `/writing-great-skills` | Reference for writing or editing a skill — structure, invocation choice, descriptions, splitting. | [Matt Pocock](https://github.com/mattpocock/skills) |
-| [small-model-prompting](small-model-prompting/) | `/small-model-prompting` | How to brief a subagent on the cheapest Claude tier (currently Haiku): when to use it, prompt rules, a delegation pattern that a script can check. | [Anthropic docs](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-haiku-5-5) |
-| [explain-diff](explain-diff/) | `/explain-diff` | Builds an interactive HTML slide deck that teaches how a code change works. | [Geoffrey Litt](https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524) |
-| [walkthrough](walkthrough/) | `/walkthrough` | You explain an AI-authored commit in your own words first; the agent teaches only the gaps (via explain-diff) and quizzes you. | original |
-| [show-me](show-me/) | `/show-me` | Explains the current topic as a picture — pipeline sketch, DAG, specification grid, small HTML page. | [humanlayer](https://github.com/humanlayer/skills) |
-| [bro](bro/) | `/bro` | Restates the last message in plain language, no jargon. | original |
-| [minto](minto/) | `/minto` | Restates the last message as a Minto pyramid: answer, reasons, evidence. | original |
-| [code-audit](code-audit/) | `/code-audit` | Correctness audit of one empirical script — data integrity, econometric specification, reproducibility; every serious finding is verified by running the code. Shares its checklist with referee2. | [aspi6246](https://github.com/aspi6246/Claude-Code-Skills-for-Academics) |
-| [number-check](number-check/) | `/number-check` | Traces every number quoted in prose (paper, deck, referee reply) back to the output that produced it and reports drift. | original |
-| [ctrl-f](ctrl-f/) | `/ctrl-f` | For each claim in a draft passage, names the Zotero source that backs it and a verbatim string to Ctrl-F for inside it. | original |
+Nine skills, grouped by the task they help with.
+
+### Reading
+
+| Skill | What it does | Source |
+|---|---|---|
+| [summarize-paper](summarize-paper/) | Deep whole-paper read in one pass (Sonnet subagent by default, Opus on request), then a Haiku fact-check gated by scripts; structured extract of data, identification strategy, results. Zotero-aware. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
+
+### Writing
+
+| Skill | What it does | Source |
+|---|---|---|
+| [econ-write](econ-write/) | Economics-paper writing assistant synthesizing 50+ top writing guides (Cochrane, McCloskey, Shapiro, …). All sections, all paper types. | [hanlulong](https://github.com/hanlulong/econ-writing-skill) |
+| [number-check](number-check/) | Traces every number quoted in prose (paper, deck, referee reply) back to the output that produced it and reports drift. | original |
+
+### Code
+
+| Skill | What it does | Source |
+|---|---|---|
+| [code-audit](code-audit/) | Correctness audit of one empirical script — data integrity, econometric specification, reproducibility; every serious finding is verified by running the code. | [aspi6246](https://github.com/aspi6246/Claude-Code-Skills-for-Academics) |
+| [referee2](referee2/) | Full empirical-research audit + cross-language R↔Python replication. Five audits, a formal referee report, and a Beamer deck. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
+| [explain-diff](explain-diff/) | Builds an interactive HTML slide deck that teaches how a code change works. | [Geoffrey Litt](https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524) |
+| [walkthrough](walkthrough/) | You explain an AI-authored commit in your own words first; the agent teaches only the gaps (via explain-diff) and quizzes you. | original |
+
+### Talks
+
+| Skill | What it does | Source |
+|---|---|---|
+| [deck](deck/) | Build or edit a Beamer deck following evidence-based rhetoric principles. Includes [rhetoric.md](deck/rhetoric.md), a knowledge base on what makes slides work, and the HTML slide template the other skills build on. | [Scott Cunningham](https://github.com/scunning1975/MixtapeTools) |
+
+### Decisions
+
+| Skill | What it does | Source |
+|---|---|---|
+| [premortem](premortem/) | Imagine the plan already failed, work backward to the most critical risks before committing. | [olelehmann1337](https://github.com/olelehmann1337/openclaw-share) |

@@ -285,8 +285,8 @@ greps in the main thread are cheaper and more reliable than more instruction tex
 ## Step 4A: Claude Code — Claude subagent reader (default: Sonnet)
 
 Spawn **one** `Agent` call with `subagent_type: pdf-reader` and `model: sonnet` — or
-`model: opus` when the user asked for Opus. `pdf-reader` is a custom agent
-(`~/.claude/agents/pdf-reader.md`) with only Read and Write: two of three readers in the
+`model: opus` when the user asked for Opus. `pdf-reader` is an optional custom agent
+(`~/.claude/agents/pdf-reader.md`, if you define one) with only Read and Write: two of three readers in the
 2026-10-23 run used Bash although the prompt forbade it, and a tool list cannot be talked
 around. If the type is missing (the `Agent` call names an unknown type), fall back to
 `general-purpose` and say so. Sonnet's 1M-token context holds a whole paper's
@@ -422,7 +422,7 @@ in parallel.
    - *Claude reader from this run*: load `SendMessage` (ToolSearch `select:SendMessage`)
      and send the block to the reader's agent ID. It still holds every page.
    - *Otherwise* (a cached extract, or `SendMessage` fails): a fresh `Agent`,
-     `subagent_type: pdf-reader`, `model: sonnet` (`opus` if the extract's stamp names Opus). It opens the disputed
+     `subagent_type: pdf-reader` (or `general-purpose` if it is missing), `model: sonnet` (`opus` if the extract's stamp names Opus). It opens the disputed
      pages as images itself.
 2. **Apply.** Run
    `python3 ~/.claude/skills/summarize-paper/apply_corrections.py --extract <extract> --decisions <extract stem>_decisions.json --disputes <extract stem>_disputes.json --flags <factcheck.json>.flags.json --dropped <extract stem>_dropped.json`.

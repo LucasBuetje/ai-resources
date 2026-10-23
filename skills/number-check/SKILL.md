@@ -1,7 +1,7 @@
 ---
 name: number-check
 origin: self
-description: "Trace every number quoted in prose — paper, deck, note, referee reply — back to the artifact that produced it and report drift. Use after re-running a pipeline the prose quotes, or before a draft goes to a reader. Numbers the project computed; for figures cited from papers use ctrl-f."
+description: "Trace every number quoted in prose — paper, deck, note, referee reply — back to the artifact that produced it and report drift. Use after re-running a pipeline the prose quotes, or before a draft goes to a reader. Numbers the project computed, not figures cited from papers."
 allowed-tools: Read, Write, Bash(grep*), Bash(ls*), Bash(find*), Bash(wc*), Bash(stat*), Bash(Rscript*), Bash(python3*), Bash(stata*), Agent, Edit
 argument-hint: '[path/to/draft.tex | path/to/deck.tex | path/to/note.md]'
 ---

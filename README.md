@@ -70,7 +70,7 @@ Here's a list of the tools I use to make my agent better.
 
 | | Feature | What it does | Details |
 |:--:|---|---|:--:|
-| ⚡ | **Skills** | Reusable one-command recipes — `/summarize-paper`, `/referee2`, … (19 of them). | [`skills/`](skills/) |
+| ⚡ | **Skills** | Reusable one-command recipes — `/summarize-paper`, `/referee2`, … (9 of them). | [`skills/`](skills/) |
 | 👥 | **Subagents** | A team working in parallel, each on a subtask, then reporting back. | [`subagents/`](subagents/) |
 | 🔌 | **MCP** | Plug the agent into external tools (e.g. a Zotero library). | [`mcp/`](mcp/) |
 | 🪝 | **Hooks** | Your conventions enforced by code, not trust. | [`hooks/`](hooks/) |
@@ -82,6 +82,22 @@ Here's a list of the tools I use to make my agent better.
 > - *"Use one subagent per paper."*
 >
 > The folders above are examples to point it at, not chores for you.
+
+## What's in the box
+
+**Skills** (each runs with `/<name>`; details in [`skills/`](skills/)):
+
+- **Reading** — [`/summarize-paper`](skills/summarize-paper/): a whole paper read in one pass, then fact-checked.
+- **Writing** — [`/econ-write`](skills/econ-write/): writing guidance for economics papers · [`/number-check`](skills/number-check/): every number in the prose traced back to its source.
+- **Code** — [`/code-audit`](skills/code-audit/): is this script right? · [`/referee2`](skills/referee2/): a full project audit with replication · [`/explain-diff`](skills/explain-diff/): a code change explained as slides · [`/walkthrough`](skills/walkthrough/): you explain an AI's commit first, then learn the gaps.
+- **Talks** — [`/deck`](skills/deck/): Beamer decks built on rhetoric principles.
+- **Decisions** — [`/premortem`](skills/premortem/): find how a plan fails before you commit to it.
+
+**Hooks** (they run automatically; details in [`hooks/`](hooks/)):
+
+- `guard-rm` and `guard-script-delete` — the agent moves files to `archive/` instead of deleting them, in commands and in scripts it writes.
+- `session-start-current-log` and `stop-log-reminder` — working memory is loaded at the start of each session and kept up to date at the end of each turn.
+- `warn-pdf-mainthread` — a warning before a PDF is read in a way that bloats the session.
 
 ## Claude's Automatic Documentation: Nothing is lost
 

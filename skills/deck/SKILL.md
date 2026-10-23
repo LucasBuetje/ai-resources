@@ -180,7 +180,7 @@ Follow the rhetoric principles in `rhetoric.md` throughout. Key constraints that
 
 ### TikZ: write it safe from the start
 
-These defaults exist because `/tikz` (invoked in Step 6) is a repair tool, not a safety net — it catches remaining collisions but can't reliably fix a diagram that was never built with measurement in mind.
+These defaults exist because a post-hoc collision check is a repair tool, not a safety net — it catches remaining collisions but can't reliably fix a diagram that was never built with measurement in mind.
 
 - Always set explicit `minimum width`/`minimum height` on every `\node` — never let TikZ autosize a box.
 - Every edge label needs a directional keyword (`above`, `below`, `left`, `right`, `sloped`, `pos=`, `midway`) — a label with none of these renders on top of the line.
@@ -220,7 +220,7 @@ For overflow warnings, apply the thresholds from `rhetoric.md`. Zero fatal error
 
 **Circuit breaker — do not spiral.** If 3 different fixes for the same error haven't resolved it (an error persisting at the same line, or moving to a nearby line, still counts as "the same"), stop editing the `.tex` file. Quote the log line to the user, list the 3 approaches tried and why each failed, and ask how to proceed. A fourth attempt on a file already made worse by three prior edits costs more than the 2 minutes it takes to ask.
 
-If the deck uses TikZ: it should already follow the safe-generation defaults from Step 5. Before finalising, still run the `/tikz` skill on each figure — it performs the label-collision, whitespace, and edge-clipping checks that safe generation reduces but doesn't guarantee against; don't re-derive them inline here.
+If the deck uses TikZ: it should already follow the safe-generation defaults from Step 5.
 
 ---
 
@@ -242,7 +242,7 @@ A second, narrower pass — figures, tables, and TikZ diagrams only. This is the
 - **In Claude Code:** dispatch a subagent (Agent tool) with this task:
   > Audit ONLY the figures, tables, and TikZ diagrams in the compiled `<filename>.pdf`. Do not evaluate rhetoric, narrative, or content. Check: (1) numerical accuracy — do the numbers shown match the underlying script's output, any mismatch is critical; (2) label positioning — do labels sit where the source code intends, nothing clipped or drifted; (3) axis and tick coherence — sensible ranges, readable tick labels; (4) color consistency — figure colors match the deck palette and are used consistently for the same variable across figures; (5) font sizing — readable from the back of the room; (6) table formatting — booktabs rules only, consistent decimal alignment; (7) captions — states what to conclude, not just what the figure is. Return a structured report tied to specific files/coordinates. Do NOT modify any files — only diagnose.
 
-Apply every fix, then go back to Step 6 (recompile) and re-run `/tikz` — this is typically where the last round of silent errors gets caught.
+Apply every fix, then go back to Step 6 (recompile).
 
 ---
 
